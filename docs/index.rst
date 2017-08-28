@@ -8,10 +8,10 @@ Welcome to Python pour CPGE scientifiques's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
    :caption: Contents:
 
-   test
-   bidon
+   types_operateurs_variables
 
 
 
