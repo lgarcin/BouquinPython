@@ -10,6 +10,8 @@ Welcome to Python pour CPGE scientifiques's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   test
+
 
 
 Indices and tables
