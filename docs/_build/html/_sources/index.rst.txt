@@ -11,6 +11,7 @@ Welcome to Python pour CPGE scientifiques's documentation!
    :caption: Contents:
 
    test
+   bidon
 
 
 

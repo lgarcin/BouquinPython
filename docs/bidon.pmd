@@ -1,0 +1,8 @@
+Titre
+-----
+
+```python
+from matplotlib.pyplot import plot, show
+plot([4,1,3,2])
+show()
+```
