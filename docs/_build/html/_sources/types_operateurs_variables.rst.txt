@@ -4,7 +4,7 @@ Types, opérateurs et variables
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contenu:
 
    types
    operateurs

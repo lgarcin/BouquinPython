@@ -3,20 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Python pour CPGE scientifiques's documentation!
-==========================================================
+Python pour les CPGE scientifiques
+==================================
 
 .. toctree::
-   :maxdepth: 2
-   :numbered:
-   :caption: Contents:
+    :maxdepth: 2
+    :numbered:
+    :caption: Contenu:
 
-   types_operateurs_variables
+    types_operateurs_variables
+    listes_chaines
 
-
-
-Indices and tables
-==================
+Index et tables
+===============
 
 * :ref:`genindex`
 * :ref:`modindex`

@@ -87,14 +87,25 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Contenu:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="types_operateurs_variables.html">1. Types, opérateurs et variables</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1.1. Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.1. Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#booleen">1.1.1. Booléen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#entier">1.1.2. Entier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flottant">1.1.3. Flottant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complexe">1.1.4. Complexe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#liste">1.1.5. Liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuple">1.1.6. Tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chaine-de-caracteres">1.1.7. Chaîne de caractères</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dictionnaire-hors-programme">1.1.8. Dictionnaire (hors programme)</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="operateurs.html">1.2. Opérateurs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="variables.html">1.3. Variables</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="listes_chaines.html">2. Listes, tuples et chaînes de caractères</a></li>
 </ul>
 
             
@@ -162,78 +173,100 @@
             
   <div class="section" id="types">
 <h1>1.1. Types<a class="headerlink" href="#types" title="Lien permanent vers ce titre">¶</a></h1>
-<ul class="simple">
-<li>Booléen</li>
-</ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
+<p>On décrit dans ce paragraphe les types de base utilisés par Python.</p>
+<div class="section" id="booleen">
+<h2>1.1.1. Booléen<a class="headerlink" href="#booleen" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un objet de type <em>booléen</em> peut prendre les valeurs logiques <strong>vrai</strong> (<code class="code docutils literal"><span class="pre">True</span></code>) ou <strong>faux</strong> (<code class="code docutils literal"><span class="pre">False</span></code>).</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">&lt;class &#39;bool&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="go">&lt;class &#39;bool&#39;&gt;</span>
 </pre></div>
 </div>
-<div class="code highlight-default"><div class="highlight"><pre><span></span>&lt;class &#39;bool&#39;&gt; &lt;class &#39;bool&#39;&gt;
+</div>
+<div class="section" id="entier">
+<h2>1.1.2. Entier<a class="headerlink" href="#entier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les entiers Python ne sont théoriquement pas limités en taille même si, en pratique, on est limité par la mémoire de la machine.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="o">-</span><span class="mi">34</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>Entier</li>
-</ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</div>
+<div class="section" id="flottant">
+<h2>1.1.3. Flottant<a class="headerlink" href="#flottant" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les nombres non entiers (nombres «&nbsp;à virgule&nbsp;») sont stockés sous la forme de nombres <em>flottants</em>. La virgule est notée à l’anglo-saxonne à l’aide du caractère <code class="code docutils literal"><span class="pre">.</span></code>. On peut également utiliser la notation scientifique : <code class="code docutils literal"><span class="pre">1.23e45</span></code> signifie <span class="math">\(1,23\times10^{45}\)</span>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">1.23</span><span class="p">)</span>
+<span class="go">&lt;class &#39;float&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span>
+<span class="go">&lt;class &#39;float&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">1.23e45</span><span class="p">)</span>
+<span class="go">&lt;class &#39;float&#39;&gt;</span>
 </pre></div>
 </div>
-<div class="code highlight-default"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
+<p>Les nombres flottants sont en fait de la forme <span class="math">\(\pm m.2^e\)</span> où <span class="math">\(m\)</span> est un réel de l’intervalle <span class="math">\([1,2[\)</span> appelé mantisse et <span class="math">\(e\)</span> est un entier. Les nombres <span class="math">\(m\)</span> et <span class="math">\(e\)</span> sont stockés sur un nombre fixé de bits <a class="footnote-reference" href="#ieee754" id="id1">[1]</a> : il n’existe par conséquent qu’un nombre <strong>fini</strong> de nombres flottants.</p>
+<p>Il faut bien comprendre que les nombres flottants ne sont en fait que des <strong>approximations</strong> des nombres réels que l’on considère, ce qui peut parfois créer des surprises.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">2.3</span><span class="o">-</span><span class="mf">1.5</span>
+<span class="go">0.7999999999999998</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>Flottant</li>
-</ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">1.75e6</span><span class="p">))</span>
+</div>
+<div class="section" id="complexe">
+<h2>1.1.4. Complexe<a class="headerlink" href="#complexe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le nombre complexe <span class="math">\(i\)</span> se note à l’aide de la lettre <code class="code docutils literal"><span class="pre">j</span></code>. Par exemple, le complexe <span class="math">\(1+2i\)</span> s’écrit <code class="code docutils literal"><span class="pre">1+2j</span></code>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">1.2</span><span class="o">+</span><span class="mf">3.4j</span><span class="p">)</span>
+<span class="go">&lt;class &#39;complex&#39;&gt;</span>
 </pre></div>
 </div>
-<div class="code highlight-default"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
+</div>
+<div class="section" id="liste">
+<h2>1.1.5. Liste<a class="headerlink" href="#liste" title="Lien permanent vers ce titre">¶</a></h2>
+<p>On peut créer une liste de valeurs (pas nécessairement de même type) en les séparant par des virgules et en les encadrant par des crochets.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">([</span><span class="mf">1.23</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="mi">45</span><span class="p">])</span>
+<span class="go">&lt;class &#39;list&#39;&gt;</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>Complexe</li>
-</ul>
-<p>Le nombre complexe <span class="math">\(i\)</span> se note à l’aide de la lettre <code class="code docutils literal"><span class="pre">j</span></code>. Par exemple, le complexe <span class="math">\(1.2+3.4i\)</span> s’écrit <code class="code docutils literal"><span class="pre">1.2+3.4j</span></code>.</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">1.2</span><span class="o">+</span><span class="mf">3.4</span><span class="n">j</span><span class="p">))</span>
+</div>
+<div class="section" id="tuple">
+<h2>1.1.6. Tuple<a class="headerlink" href="#tuple" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un <em>tuple</em> est également une liste mais qu’on ne peut plus modifier. La liste de valeurs est encadrée par des parenthèses.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">((</span><span class="mf">1.23</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="mi">45</span><span class="p">))</span>
+<span class="go">&lt;class &#39;tuple&#39;&gt;</span>
 </pre></div>
 </div>
-<div class="code highlight-default"><div class="highlight"><pre><span></span>&lt;class &#39;complex&#39;&gt;
+</div>
+<div class="section" id="chaine-de-caracteres">
+<h2>1.1.7. Chaîne de caractères<a class="headerlink" href="#chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Maths&#39;</span><span class="p">)</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>Tuple</li>
-</ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">((</span><span class="mf">1.23</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span>
+</div>
+<div class="section" id="dictionnaire-hors-programme">
+<h2>1.1.8. Dictionnaire (hors programme)<a class="headerlink" href="#dictionnaire-hors-programme" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">({</span><span class="s1">&#39;toto&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;titi&#39;</span><span class="p">:</span> <span class="mf">4.56</span><span class="p">,</span> <span class="s1">&#39;tata&#39;</span><span class="p">:</span> <span class="s1">&#39;abc&#39;</span><span class="p">})</span>
+<span class="go">&lt;class &#39;dict&#39;&gt;</span>
 </pre></div>
 </div>
-<div class="code highlight-default"><div class="highlight"><pre><span></span>&lt;class &#39;tuple&#39;&gt;
-</pre></div>
-</div>
-<ul class="simple">
-<li>Liste</li>
-</ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
-</pre></div>
-</div>
-<div class="code highlight-default"><div class="highlight"><pre><span></span>&lt;class &#39;list&#39;&gt;
-</pre></div>
-</div>
-<ul class="simple">
-<li>Chaîne de caractères</li>
-</ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Maths&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="code highlight-default"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt; &lt;class &#39;str&#39;&gt;
-</pre></div>
-</div>
-<ul class="simple">
-<li>Dictionnaire (hors programme)</li>
-</ul>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">({</span><span class="s1">&#39;toto&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;titi&#39;</span><span class="p">:</span> <span class="mf">4.56</span><span class="p">,</span> <span class="s1">&#39;tata&#39;</span><span class="p">:</span> <span class="s1">&#39;abc&#39;</span><span class="p">}))</span>
-</pre></div>
-</div>
-<div class="code highlight-default"><div class="highlight"><pre><span></span>&lt;class &#39;dict&#39;&gt;
-</pre></div>
+<p class="rubric">Notes</p>
+<table class="docutils footnote" frame="void" id="ieee754" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Pour plus de précision, on pourra consulter la définition de la norme <a class="reference external" href="https://fr.wikipedia.org/wiki/IEEE_754">IEEE 754</a>.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 

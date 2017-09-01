@@ -2,125 +2,105 @@
 Types
 =====
 
-* Booléen
+On décrit dans ce paragraphe les types de base utilisés par Python.
 
+Booléen
+-------
 
-.. code:: python
+Un objet de type *booléen* peut prendre les valeurs logiques **vrai** (:code:`True`) ou **faux** (:code:`False`).
 
-    print(type(True), type(False))
 
+.. runblock:: pycon
 
-.. code::
+    >>> type(True)
+    >>> type(False)
 
-    <class 'bool'> <class 'bool'>
-    
 
+Entier
+------
 
+Les entiers Python ne sont théoriquement pas limités en taille même si, en pratique, on est limité par la mémoire de la machine.
 
-* Entier
 
+.. runblock:: pycon
 
-.. code:: python
+    >>> type(12)
+    >>> type(-34)
 
-    print(type(10))
+Flottant
+--------
 
+Les nombres non entiers (nombres "à virgule") sont stockés sous la forme de nombres *flottants*. La virgule est notée à l'anglo-saxonne à l'aide du caractère :code:`.`. On peut également utiliser la notation scientifique : :code:`1.23e45` signifie :math:`1,23\times10^{45}`.
 
-.. code::
 
-    <class 'int'>
-    
+.. runblock:: pycon
 
+    >>> type(1.23)
+    >>> type(1.)
+    >>> type(1.23e45)
 
 
-* Flottant
+Les nombres flottants sont en fait de la forme :math:`\pm m.2^e` où :math:`m` est un réel de l'intervalle :math:`[1,2[` appelé mantisse et :math:`e` est un entier. Les nombres :math:`m` et :math:`e` sont stockés sur un nombre fixé de bits [#ieee754]_ : il n'existe par conséquent qu'un nombre **fini** de nombres flottants.
 
+Il faut bien comprendre que les nombres flottants ne sont en fait que des **approximations** des nombres réels que l'on considère, ce qui peut parfois créer des surprises.
 
-.. code:: python
 
-    print(type(1.75e6))
+.. runblock:: pycon
 
+    >>> 2.3-1.5
 
-.. code::
 
-    <class 'float'>
-    
+Complexe
+--------
 
+Le nombre complexe :math:`i` se note à l'aide de la lettre :code:`j`. Par exemple, le complexe :math:`1+2i` s'écrit :code:`1+2j`.
 
 
-* Complexe
+.. runblock:: pycon
 
-Le nombre complexe :math:`i` se note à l'aide de la lettre :code:`j`. Par exemple, le complexe :math:`1.2+3.4i` s'écrit :code:`1.2+3.4j`.
+    >>> type(1.2+3.4j)
 
 
-.. code:: python
+Liste
+-----
 
-    print(type(1.2+3.4j))
+On peut créer une liste de valeurs (pas nécessairement de même type) en les séparant par des virgules et en les encadrant par des crochets.
 
 
-.. code::
+.. runblock:: pycon
 
-    <class 'complex'>
-    
+    >>> type([1.23, "abc", 45])
 
 
+Tuple
+-----
 
-* Tuple
+Un *tuple* est également une liste mais qu'on ne peut plus modifier. La liste de valeurs est encadrée par des parenthèses.
 
 
-.. code:: python
+.. runblock:: pycon
 
-    print(type((1.23, "abc", 10)))
+    >>> type((1.23, "abc", 45))
 
+Chaîne de caractères
+--------------------
 
-.. code::
 
-    <class 'tuple'>
-    
+.. runblock:: pycon
 
+    >>> type("Python")
+    >>> type('Maths')
 
 
+Dictionnaire (hors programme)
+-----------------------------
 
-* Liste
 
+.. runblock:: pycon
 
-.. code:: python
+    >>> type({'toto': 123, 'titi': 4.56, 'tata': 'abc'})
 
-    print(type([1,2,3]))
 
+.. rubric:: Notes
 
-.. code::
-
-    <class 'list'>
-    
-
-
-
-* Chaîne de caractères
-
-
-.. code:: python
-
-    print(type("Python"), type('Maths'))
-
-
-.. code::
-
-    <class 'str'> <class 'str'>
-    
-
-
-
-* Dictionnaire (hors programme)
-
-
-.. code:: python
-
-    print(type({'toto': 123, 'titi': 4.56, 'tata': 'abc'}))
-
-
-.. code::
-
-    <class 'dict'>
-    
-
-
+.. [#ieee754] Pour plus de précision, on pourra consulter la définition de la norme `IEEE 754 <https://fr.wikipedia.org/wiki/IEEE_754>`_.
