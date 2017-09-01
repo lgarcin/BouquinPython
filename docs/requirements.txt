@@ -1,2 +1,3 @@
 sphinx_autorun
 ipython
+matplotlib
