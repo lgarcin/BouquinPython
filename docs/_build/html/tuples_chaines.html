@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2. Tuples et chaînes de caractères &mdash; documentation Python pour CPGE scientifiques 1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation Python pour CPGE scientifiques 1" href="index.html"/>
+        <link rel="up" title="2. Types composés : listes, tuples et chaînes de caractères" href="types_composes.html"/>
+        <link rel="next" title="2.3. Mutabilité" href="mutabilite.html"/>
+        <link rel="prev" title="2.1. Listes" href="listes.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python pour CPGE scientifiques
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenu:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="types_operateurs_variables.html">1. Types, opérateurs et variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="types_composes.html">2. Types composés : listes, tuples et chaînes de caractères</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="listes.html">2.1. Listes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Tuples et chaînes de caractères</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tuples">2.2.1. Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chaines-de-caracteres">2.2.2. Chaînes de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mutabilite.html">2.3. Mutabilité</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python pour CPGE scientifiques</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="types_composes.html">2. Types composés : listes, tuples et chaînes de caractères</a> &raquo;</li>
+        
+      <li>2.2. Tuples et chaînes de caractères</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tuples_chaines.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tuples-et-chaines-de-caracteres">
+<h1>2.2. Tuples et chaînes de caractères<a class="headerlink" href="#tuples-et-chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="tuples">
+<h2>2.2.1. Tuples<a class="headerlink" href="#tuples" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un <em>tuple</em> est tout à fait similaire à une liste : il s’agit d’une collection d’objets <a class="footnote-reference" href="#tuple" id="id1">[1]</a> . On crée un tuple en séparant les objets par des des virgules <code class="code docutils literal"><span class="pre">,</span></code> et en les encadrant <em>éventuellement</em> par des parenthèses <code class="code docutils literal"><span class="pre">(...)</span></code>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="go">&lt;class &#39;tuple&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">&lt;class &#39;tuple&#39;&gt;</span>
+</pre></div>
+</div>
+<p>Quand faut-il encadrer un tuple avec des parenthèses ? Par exemple si l’on crée une liste dont certains arguments sont des tuples.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+<span class="go">[(1, 2), (3, 4)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="go">[1, 2, 3, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Ou bien quand on on apelle une fonction dont un ou plusieurs arguments sont des tuples.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>   <span class="c1"># fonction de deux arguments (deux tuples)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>       <span class="c1"># fonction de quatre arguments (quatre entiers)</span>
+</pre></div>
+</div>
+<p>Les opérateurs <code class="code docutils literal"><span class="pre">+</span></code> et <code class="code docutils literal"><span class="pre">+=</span></code> fonctionnent comme pour les listes.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">(1, 2, 3, 4)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">(1, 2, 3, 4)</span>
+</pre></div>
+</div>
+<p>On peut <strong>accéder</strong> aux éléments d’un tuple de la même manière qu’on accède aux éléments d’une liste.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">&#39;b&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="go">(2, &#39;b&#39;, 3, &#39;c&#39;, 4, &#39;d&#39;, 5, &#39;e&#39;, 6, &#39;f&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="go">(1, &#39;a&#39;, 2, &#39;b&#39;, 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">&#39;e&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">(2, 3, 4, 5)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">(5, &#39;c&#39;, 2)</span>
+</pre></div>
+</div>
+<p>Par contre, on ne peut pas <strong>modifier</strong> un tuple : on ne peut ni modifier ses éléments, ni en ajouter <a class="footnote-reference" href="#modiftuple" id="id2">[2]</a>, ni en enlever.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;input&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">&#39;tuple&#39; object does not support item assignment</span>
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title first">Affectations multiples</p>
+<p>Les tuples permettent d’affecter des valeurs à plusieurs variables en même temps <a class="footnote-reference" href="#affmul" id="id3">[4]</a>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>Cela permet notamment d’échanger élégamment les valeurs de deux variables <a class="footnote-reference" href="#echange" id="id4">[5]</a>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="chaines-de-caracteres">
+<h2>2.2.2. Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une chaîne de caractères n’est autre qu’une liste de caractères. Les caractères sont juxtaposés et encadrés par des guillemets simples <code class="code docutils literal"><span class="pre">'...'</span></code> ou doubles <code class="code docutils literal"><span class="pre">&quot;...&quot;</span></code>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;abcdef&quot;</span> <span class="o">==</span> <span class="s1">&#39;abcdef&#39;</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>A nouveau, les opérateurs <code class="code docutils literal"><span class="pre">+</span></code> et <code class="code docutils literal"><span class="pre">+=</span></code> fonctionnent comme pour les listes.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abc&#39;</span> <span class="o">+</span> <span class="s2">&quot;def&quot;</span>
+<span class="go">&#39;abcdef&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;def&quot;</span>
+</pre></div>
+</div>
+<p>On peut <strong>accéder</strong> de la même manière aux caractères d’une chaîne qu’aux éléments d’une liste.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span> <span class="o">=</span> <span class="s2">&quot;Bonjour Python&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">&#39;j&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="go">&#39;njour Python&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="go">&#39;Bonjo&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">&#39;h&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">&#39;norP&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">&#39;Pun&#39;</span>
+</pre></div>
+</div>
+<p>Par contre, on ne peut pas non plus <strong>modifier</strong> une chaîne <a class="footnote-reference" href="#modifchaine" id="id5">[3]</a>.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;z&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;input&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">&#39;str&#39; object does not support item assignment</span>
+</pre></div>
+</div>
+<p>Les chaînes possèdent de nombreuses méthodes : ces méthodes ne modifient jamais la chaîne de caractère mais renvoient une <em>autre</em> chaîne de caractère.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span> <span class="o">=</span> <span class="s1">&#39;Mon nom est Bond. James Bond.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Bond&#39;</span><span class="p">,</span> <span class="s1">&#39;Toto&#39;</span><span class="p">)</span>
+<span class="go">&#39;Mon nom est Toto. James Toto.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span>
+<span class="go">&#39;Mon nom est Bond. James Bond.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;MON NOM EST BOND. JAMES BOND.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ma_chaine</span>
+<span class="go">&#39;Mon nom est Bond. James Bond.&#39;</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<table class="docutils footnote" frame="void" id="tuple" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Il s’agit exactement de la notion de <em>uplet</em> en mathématiques. L’appellation <em>tuple</em> provient en fait de l’anglais. En effet, en anglais, on parle de «&nbsp;quadruple&nbsp;», «&nbsp;quintuple&nbsp;», etc.. et plus généralement de <span class="math">\(n\)</span>-<strong>tuple</strong> tandis qu’en français, on emploie les termes «&nbsp;quadruplet&nbsp;», «&nbsp;quintuplet&nbsp;», etc.. et de manière générale <span class="math">\(n\)</span>-<strong>uplet</strong>. Néanmoins, la terminologie anglo-saxonne s’est imposée en ce qui concerne Python.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="modiftuple" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>L’opérateur <code class="code docutils literal"><span class="pre">+=</span></code> ne modifie pas à proprement parler un tuple mais la valeur de la variable contenant initialement le tuple.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="modifchaine" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td>A nouveau, l’opérateur <code class="code docutils literal"><span class="pre">+=</span></code> modifie la valeur de la variable, pas la chaîne.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="affmul" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[4]</a></td><td><p class="first">On peut également procéder à des affectations multiples à l’aide de listes.</p>
+<div class="last highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="echange" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[5]</a></td><td><p class="first">A nouveau, on peut également utiliser des listes pour échanger les valeurs de deux variables.</p>
+<div class="last highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mutabilite.html" class="btn btn-neutral float-right" title="2.3. Mutabilité" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="listes.html" class="btn btn-neutral" title="2.1. Listes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Laurent Garcin.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -6,9 +6,9 @@ Variables
 Variable et affectation
 -----------------------
 
-Une *variable* est un objet qui associe un nom (*identifiant*) à une valeur stockée en mémoire. Concrètement, une variable permet de conserver une valeur en vue d'une utilisation ultérieure.
+Une *variable* est un objet qui associe un nom (*identifiant*) à un objet stocké en mémoire. Concrètement, une variable permet de conserver un objet en vue d'une utilisation ultérieure.
 
-Pour stocker une valeur dans une variable, on utilise l'opérateur d'affectation :code:`=`.
+Pour stocker un objet dans une variable, on utilise l'opérateur d'affectation :code:`=`.
 
 
 .. runblock:: pycon
@@ -22,7 +22,6 @@ Pour stocker une valeur dans une variable, on utilise l'opérateur d'affectation
 
     Le symbole :code:`=` n'a pas du tout le même sens qu'en mathématiques. En mathématiques, ce symbole désigne un état de fait et a une valeur logique (une égalité peut être vraie ou fausse) tandis qu'en Python, il accomplit une action (stocker une valeur dans une variable).
 
-
 Bien entendu, on peut changer la valeur d'une variable (d'où le nom) et même le type de cette valeur.
 
 
@@ -32,6 +31,34 @@ Bien entendu, on peut changer la valeur d'une variable (d'où le nom) et même l
     >>> a
     >>> a = "toto"
     >>> a
+
+
+.. topic:: Echange de deux variables
+
+    On est souvent amené à échanger les valeurs de deux variables. La méthode naïve ne fonctionne pas.
+
+    .. runblock:: pycon
+
+        >>> a = 1
+        >>> b = 2
+        >>> a = b # Les deux variables valent 2 !
+        >>> b = a
+        >>> a
+        >>> b
+
+    L'idée est alors d'employer une variable auxiliaire.
+
+    .. runblock:: pycon
+
+        >>> a = 1
+        >>> b = 2
+        >>> aux = a
+        >>> a = b
+        >>> b = aux
+        >>> a
+        >>> b
+
+.. todo:: Mettre une référence vers l'échange avec tuples
 
 
 Identifiant d'une variable

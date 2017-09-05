@@ -34,11 +34,14 @@
 extensions = ['sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    'sphinx.ext.doctest',
+    'sphinx.ext.todo',
     'sphinx_autorun',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     'matplotlib.sphinxext.only_directives',
-    'matplotlib.sphinxext.plot_directive']
+    'matplotlib.sphinxext.plot_directive',
+    'sphinxcontrib.tikz']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -177,3 +180,7 @@ texinfo_documents = [
      author, 'PythonpourCPGEscientifiques', 'One line description of project.',
      'Miscellaneous'),
 ]
+
+
+
+tikz_proc_suite = 'ImageMagick'

@@ -37,7 +37,7 @@
         <link rel="search" title="Recherche" href="search.html"/>
     <link rel="top" title="documentation Python pour CPGE scientifiques 1" href="index.html"/>
         <link rel="up" title="1. Types, opérateurs et variables" href="types_operateurs_variables.html"/>
-        <link rel="next" title="2. Listes et chaînes de caractères" href="listes_chaines.html"/>
+        <link rel="next" title="2. Types composés : listes, tuples et chaînes de caractères" href="types_composes.html"/>
         <link rel="prev" title="1.2. Opérateurs" href="operateurs.html"/> 
 
   
@@ -100,7 +100,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="listes_chaines.html">2. Listes et chaînes de caractères</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types_composes.html">2. Types composés : listes, tuples et chaînes de caractères</a></li>
 </ul>
 
             
@@ -170,8 +170,8 @@
 <h1>1.3. Variables<a class="headerlink" href="#variables" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="variable-et-affectation">
 <h2>1.3.1. Variable et affectation<a class="headerlink" href="#variable-et-affectation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une <em>variable</em> est un objet qui associe un nom (<em>identifiant</em>) à une valeur stockée en mémoire. Concrètement, une variable permet de conserver une valeur en vue d’une utilisation ultérieure.</p>
-<p>Pour stocker une valeur dans une variable, on utilise l’opérateur d’affectation <code class="code docutils literal"><span class="pre">=</span></code>.</p>
+<p>Une <em>variable</em> est un objet qui associe un nom (<em>identifiant</em>) à un objet stocké en mémoire. Concrètement, une variable permet de conserver un objet en vue d’une utilisation ultérieure.</p>
+<p>Pour stocker un objet dans une variable, on utilise l’opérateur d’affectation <code class="code docutils literal"><span class="pre">=</span></code>.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span></span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
@@ -192,6 +192,34 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">&#39;toto&#39;</span>
 </pre></div>
+</div>
+<div class="topic">
+<p class="topic-title first">Echange de deux variables</p>
+<p>On est souvent amené à échanger les valeurs de deux variables. La méthode naïve ne fonctionne pas.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="c1"># Les deux variables valent 2 !</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p>L’idée est alors d’employer une variable auxiliaire.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aux</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">aux</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">1</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="identifiant-d-une-variable">
@@ -239,7 +267,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="listes_chaines.html" class="btn btn-neutral float-right" title="2. Listes et chaînes de caractères" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="types_composes.html" class="btn btn-neutral float-right" title="2. Types composés : listes, tuples et chaînes de caractères" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="operateurs.html" class="btn btn-neutral" title="1.2. Opérateurs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

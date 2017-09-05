@@ -2,6 +2,8 @@
 Types
 =====
 
+.. todo:: Expliquer ce qu'est un type. En fait, on devrait parler de classe.
+
 On décrit dans ce paragraphe les types de base utilisés par Python.
 
 Booléen

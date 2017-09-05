@@ -7,3 +7,4 @@ Listes, tuples et chaînes de caractères
     :caption: Contenu:
 
     creation_manipulation_listes
+    tuples_chaines

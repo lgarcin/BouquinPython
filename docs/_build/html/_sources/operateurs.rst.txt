@@ -60,3 +60,6 @@ On dispose des opérateurs logique classiques : :code:`not` (négation), :code:`
     >>> not False
     >>> 1+2<3 and 4.5==6
     >>> 7<=8 or "abc"=="def"
+
+
+.. todo:: Enchaîner les opérateurs de comparaison et d'affectation

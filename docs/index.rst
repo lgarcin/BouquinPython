@@ -12,7 +12,7 @@ Python pour les CPGE scientifiques
     :caption: Contenu:
 
     types_operateurs_variables
-    listes_chaines
+    types_composes
 
 Index et tables
 ===============
@@ -20,3 +20,5 @@ Index et tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. todo:: Instatllation Python

@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3. Mutabilité &mdash; documentation Python pour CPGE scientifiques 1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Recherche" href="search.html"/>
+    <link rel="top" title="documentation Python pour CPGE scientifiques 1" href="index.html"/>
+        <link rel="up" title="2. Types composés : listes, tuples et chaînes de caractères" href="types_composes.html"/>
+        <link rel="prev" title="2.2. Tuples et chaînes de caractères" href="tuples_chaines.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python pour CPGE scientifiques
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenu:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="types_operateurs_variables.html">1. Types, opérateurs et variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="types_composes.html">2. Types composés : listes, tuples et chaînes de caractères</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="listes.html">2.1. Listes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuples_chaines.html">2.2. Tuples et chaînes de caractères</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.3. Mutabilité</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python pour CPGE scientifiques</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="types_composes.html">2. Types composés : listes, tuples et chaînes de caractères</a> &raquo;</li>
+        
+      <li>2.3. Mutabilité</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/mutabilite.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mutabilite">
+<h1>2.3. Mutabilité<a class="headerlink" href="#mutabilite" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Il s’agit d’un paragraphe un peu subtil : on expliquera notamment pourquoi il existe en Python des objets <strong>modifiables</strong> (comme les listes) et des objets <strong>non modifiables</strong> (comme les tuples ou les chaines). On parlera plutôt d’objets <strong>mutables</strong> ou <strong>immutables</strong> (c’est à nouveau un anglicisme).</p>
+<p>Considérons ce premier exemple où les variables sont des entiers.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>           <span class="c1"># on modifie a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>               <span class="c1"># b n&#39;a pas ete modifiee</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>Considérons maintenant l’exemple suivant où les variables sont des listes.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>    <span class="c1"># on modifie la liste a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[&#39;foo&#39;, 2]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>               <span class="c1"># la liste b a aussi ete modifiee !</span>
+<span class="go">[&#39;foo&#39;, 2]</span>
+</pre></div>
+</div>
+<p>Pour expliquer la différence entre ces deux exemples, il faut comprendre la représentation des objets Python en mémoire. Pour cela, on va utiliser la fonction <code class="code docutils literal"><span class="pre">id</span></code>. Pour schématiser, celle-ci renvoie l’emplacement en mémoire de l’objet lié à une variable.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>    <span class="c1"># les variables a et b pointent vers le meme emplacement en memoire</span>
+<span class="go">(1951712944, 1951712944)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>    <span class="c1"># la variable b pointe toujours vers le meme emplacement mais plus la variable b</span>
+<span class="go">(1951712976, 1951712944)</span>
+</pre></div>
+</div>
+<p>L’instruction <code class="code docutils literal"><span class="pre">a=2</span></code> a donc utilisé un nouvel emplacement en mémoire pour stocker l’entier 2 et fait pointer la variable <code class="code docutils literal"><span class="pre">a</span></code> vers ce nouvel emplacement.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>    <span class="c1"># les variables a et b pointent vers le meme emplacement en memoire</span>
+<span class="go">(1962314394184, 1962314394184)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>    <span class="c1"># les variables a et b pointent toujours vers le meme emplacement</span>
+<span class="go">(1962314394184, 1962314394184)</span>
+</pre></div>
+</div>
+<p>Ici, l’instruction <code class="code docutils literal"><span class="pre">a[0]='foo'</span></code> a modifié l’objet stocké à l’emplacement commun vers lequel pointent les variables <code class="code docutils literal"><span class="pre">a</span></code> et <code class="code docutils literal"><span class="pre">b</span></code>. Comme <code class="code docutils literal"><span class="pre">a</span></code> et <code class="code docutils literal"><span class="pre">b</span></code> pointent toujours le même emplacement en mémoire, la variable <code class="code docutils literal"><span class="pre">b</span></code> est maintenant associée à ce nouvel objet.</p>
+<p>Les choses s’éclaireront sans doute plus à l’aide d’un schéma.</p>
+<div class="figure">
+<p><img src="_images/tikz-0d882dec189aed82a755c827560b4fbe144cf0e5.png" alt="\node[rectangle,draw,pin={[draw,circle]120:b},pin={[draw,circle]240:a}](before){123};
+\node[rectangle,draw,pin={[draw,circle]60:b}](b after)[right=5cm of before]{123};
+\node[rectangle,draw,pin={[draw,circle]-60:a}](a after)[below=1cm of b after]{456};
+\draw[-fast cap,shorten &lt;=10pt,shorten &gt;=10pt,&gt;=latex, blue!20!white, line width=10pt](before) -- (b after);" /></p>
+<p class="caption">An Example Directive with Caption</p></div><div class="figure">
+<p><img src="_images/tikz-5ff2159bb128d924e8d102132e44776ec0602aa6.png" alt="\node[rectangle,draw,pin={[draw,circle]120:b},pin={[draw,circle]240:a}](before){[1,2,3]};
+\node[rectangle,draw,pin={[draw,circle]60:b},pin={[draw,circle]-60:a}](after)[right=5cm of before]{[4,5,6]};
+\draw[-fast cap,shorten &lt;=10pt,shorten &gt;=10pt,&gt;=latex, blue!20!white, line width=10pt](before) -- (after);" /></p>
+<p class="caption">An Example Directive with Caption</p></div><p>Définition (bof)</p>
+<blockquote>
+<div>Un objet est dit <strong>mutable</strong> si on peut changer sa valeur sans changer son emplacemenent en mémoire. Dans le cas contraire, l’objet est dit <strong>immutable</strong>.</div></blockquote>
+<p>On peut tomber sur des problèmes nettement plus vicieux qui peuvent se</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>     <span class="c1"># on pense n&#39;avoir modifie qu&#39;un element de la liste de listes a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>               <span class="c1"># en fait non...</span>
+<span class="go">[[1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0]]</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="tuples_chaines.html" class="btn btn-neutral" title="2.2. Tuples et chaînes de caractères" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Laurent Garcin.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
