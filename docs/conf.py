@@ -183,4 +183,4 @@ texinfo_documents = [
 
 
 
-tikz_proc_suite = 'ImageMagick'
+tikz_proc_suite = 'GhostScript'
