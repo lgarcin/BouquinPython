@@ -2,8 +2,8 @@
 Listes
 ======
 
-Création de listes et opérations de base
-----------------------------------------
+.. rubric:: Création de listes et opérations de base
+
 
 Une **liste** est tout simplement une collection d'objets. On la déclare en séparant ses éléments par des virgules :code:`,` et en les encadrant par des crochets :code:`[...]`.
 
@@ -58,8 +58,7 @@ La fonction :code:`len` permet de récupérer la longueur d'une liste.
     >>> len([1.23, 'abc', 45])
 
 
-Accès aux éléments
-------------------
+.. rubric:: Accès aux éléments
 
 On peut accéder aux éléments d'une liste via leurs indices et l'opérateur :code:`[ ]`.
 
@@ -92,8 +91,7 @@ On peut également accéder à des éléments d'une liste "par la fin".
     >>> ma_liste[-3]
 
 
-Modification des éléments
--------------------------
+.. rubric:: Modification des éléments
 
 
 L'opérateur :code:`[ ]` permet également de modifier les éléments d'une liste.
@@ -115,8 +113,8 @@ Bien évidemment, cela fonctionne aussi pour les listes imbriquées.
     >>> ma_liste
 
 
-Insertion et suppression d'éléments
------------------------------------
+.. rubric:: Insertion et suppression d'éléments
+
 
 Il existe plusieurs moyens d'ajouter des éléments à une liste.
 
@@ -184,8 +182,8 @@ La suppression d'éléments peut également se faire au moyen du mot-clé :code:
     >>> ma_liste
 
 
-Sous-listes (slicing)
----------------------
+.. rubric:: Sous-listes (slicing)
+
 
 Il existe une syntaxe permettant de créer une sous-liste d'une liste.
 

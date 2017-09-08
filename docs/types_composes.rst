@@ -7,5 +7,8 @@ Types composés : listes, tuples et chaînes de caractères
     :caption: Contenu:
 
     listes
-    tuples_chaines
-    mutabilite
+    tuples
+    chaines
+    muabilite
+
+.. todo:: peut-être rajouter dictionnaires

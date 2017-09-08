@@ -13,6 +13,7 @@ Python pour les CPGE scientifiques
 
     types_operateurs_variables
     types_composes
+    algorithmique
 
 Index et tables
 ===============
@@ -21,4 +22,4 @@ Index et tables
 * :ref:`modindex`
 * :ref:`search`
 
-.. todo:: Instatllation Python
+.. todo:: Installation Python + comment taper les exemples du bouquin
