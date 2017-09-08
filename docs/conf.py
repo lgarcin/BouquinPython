@@ -183,3 +183,7 @@ texinfo_documents = [
 
 
 tikz_proc_suite = 'GhostScript'
+tikz_libraries = 'positioning, arrows'
+latex_elements = {
+    'preamble': '\usepackage{tikz}' + '\usetikzlibrary{' + tikz_libraries + '}'
+}
