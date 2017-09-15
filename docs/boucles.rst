@@ -37,5 +37,8 @@ Les boucles inconditionnelles en Python permettent de parcourir un objet de type
         for i in range(4, 9, 2):
             print(i)
 
+
+
 .. todo:: blabla sur les itérables
 .. todo:: listes par compréhension
+.. todo:: break et continue

@@ -1,4 +1,4 @@
-sphinx_autorun
 ipython
 matplotlib
 sphinxcontrib-tikz
+robpol86-sphinxcontrib-googleanalytics

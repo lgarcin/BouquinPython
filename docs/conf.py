@@ -31,21 +31,21 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-import os, sys
-sys.path.append(os.path.abspath('_extensions'))
+import os
+import sys
+sys.path.append(os.path.abspath('extensions'))
 extensions = ['sphinx.ext.mathjax',
               'sphinx.ext.viewcode',
               'sphinx.ext.githubpages',
               'sphinx.ext.doctest',
               'sphinx.ext.todo',
-              'sphinx_autorun',
-              'sphinx_pythonrun',
               'sphinx_execute_code',
               'IPython.sphinxext.ipython_console_highlighting',
               'IPython.sphinxext.ipython_directive',
               'matplotlib.sphinxext.only_directives',
               'matplotlib.sphinxext.plot_directive',
-              'sphinxcontrib.tikz']
+              'sphinxcontrib.tikz',
+              'sphinxcontrib.googleanalytics']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -197,3 +197,6 @@ latex_elements = {
 autorun_languages = {}
 autorun_languages['pycon_input_encoding'] = 'utf8'
 autorun_languages['pycon_output_encoding'] = 'utf8'
+
+# Google Analytics
+googleanalytics_id = 'UA-30206958-4'

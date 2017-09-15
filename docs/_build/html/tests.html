@@ -5,7 +5,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-30206958-4']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>3.1. Tests &mdash; documentation Python pour CPGE scientifiques 1</title>
@@ -180,61 +191,64 @@
 <p>Si on veut introduire un bloc d’instructions à exécuter lorsque la condition <strong>n’est pas</strong> remplie, on emploie le mot-clé <code class="code docutils literal"><span class="pre">else</span></code>.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="gp">In [6]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="gp">In [7]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="gp">In [6]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
 <span class="gp">   ...: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">   ...: </span>
 
-<span class="gp">In [8]: </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">In [7]: </span><span class="k">else</span><span class="p">:</span>
 <span class="gp">   ...: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">   ...: </span><span class="n">x</span>
 <span class="gp">   ...: </span>
-<span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-8-bd4ba538daec&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-7-bd4ba538daec&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
        <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 <p>Si on veut envisager plusieurs tests successifs, on emploie le mot-clé <code class="code docutils literal"><span class="pre">elif</span></code> (conctraction de <code class="code docutils literal"><span class="pre">else</span> <span class="pre">if</span></code>).</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="gp">In [10]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">In [9]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="gp">In [11]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">In [10]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>\
 <span class="gp">   ....: </span>
 
-<span class="gp">In [12]: </span><span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+<span class="gp">In [10]: </span><span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">   ....: </span><span class="n">x</span>
 <span class="gp">   ....: </span>
-<span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-12-c6a2b1c9dad8&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
-       <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<span class="gh">Out[10]: </span><span class="go">2</span>
 </pre></div>
 </div>
 <p>On peut évidemment combiner <code class="code docutils literal"><span class="pre">if</span></code>, <code class="code docutils literal"><span class="pre">elif</span></code> et <code class="code docutils literal"><span class="pre">else</span></code>.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="gp">In [14]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">In [12]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="gp">In [15]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">In [13]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>\
 <span class="gp">   ....: </span>
 
-<span class="gp">In [16]: </span><span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">In [13]: </span><span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> \
 <span class="gp">   ....: </span><span class="k">else</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">   ....: </span><span class="n">x</span>
 <span class="gp">   ....: </span>
-<span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-16-875bebee4de2&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-       <span class="o">^</span>
+<span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-13-3eb5a28ddaaa&gt;&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">else</span><span class="p">:</span>
+             <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Python dispose</p>
+<div class="last highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="mi">2</span> <span class="k">if</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="k">else</span> <span class="mi">3</span>
+<span class="gh">Out[14]: </span><span class="go">2</span>
+</pre></div>
+</div>
 </div>
 </div>
 

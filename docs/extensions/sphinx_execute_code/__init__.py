@@ -130,13 +130,12 @@ class ExecuteCode(Directive):
                 suffix = ''
                 if not 'hide_filename' in self.options:
                     suffix = '' if filename is None else str(filename)
-                output.append(nodes.caption(
-                    text='Code %s' % suffix))
+                output.append(nodes.caption(text='Code %s' % suffix))
             output.append(input_code)
 
         # Show the code results
         if not 'hide_headers' in self.options:
-            output.append(nodes.caption(text='Results'))
+            output.append(nodes.caption(text='Résultat'))
         code_results = self.execute_code(code)
         code_results = nodes.literal_block(code_results, code_results)
 

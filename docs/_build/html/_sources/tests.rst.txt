@@ -18,7 +18,6 @@ Si on veut introduire un bloc d'instructions à exécuter lorsque la condition *
 .. ipython:: python
 
     a = 5
-    x = 0
     if a < 1:
         x = 1
     else:
@@ -33,7 +32,7 @@ Si on veut envisager plusieurs tests successifs, on emploie le mot-clé :code:`e
     a = 5
     x = 0
     if a < 1:
-        x = 1
+        x = 1\
     elif a > 3:
         x = 2
     x
@@ -45,9 +44,17 @@ On peut évidemment combiner :code:`if`, :code:`elif` et :code:`else`.
     a = 5
     x = 0
     if a < 1:
-        x = 1
+        x = 1\
     elif a < 2:
-        x = 2
+        x = 2 \
     else:
         x = 3
     x
+
+.. note::
+
+    Python dispose
+
+    .. ipython:: python
+
+        2 if 3 < 4 else 3
