@@ -80,9 +80,7 @@ Voilà la solution du mystère : toutes les variables pointant vers un même obj
     Bien souvent, on veut copier une liste dans un nouvel objet pour qu'il ne subisse pas les modifications de l'objet initial. Pour cela, il ya plusieurs possibilités :
 
         * le slicing :code:`[:]` ;
-
         * l'utilisation de la méthode :code:`copy` ;
-
         * l'utilisation du constructeur :code:`list`.
 
     .. ipython:: python

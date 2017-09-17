@@ -6,11 +6,9 @@ Un test permet d'effectuer un bloc d'instructions lorsqu'une condition est rempl
 
 .. ipython:: python
 
-    a = 5       # Changer la valeur de a pour comprendre ce qui se passe
-    x = 0
-    if a > 1:
-        x = 1
-    x
+    a = 4       # Changer la valeur de a pour comprendre ce qui se passe
+    if a % 2 ==0 :
+        print('a est pair')
 
 
 Si on veut introduire un bloc d'instructions à exécuter lorsque la condition **n'est pas** remplie, on emploie le mot-clé :code:`else`.
@@ -18,11 +16,10 @@ Si on veut introduire un bloc d'instructions à exécuter lorsque la condition *
 .. ipython:: python
 
     a = 5
-    if a < 1:
-        x = 1
+    if a % 2 == 0:
+        print('a est pair')\
     else:
-        x = 2
-    x
+        print('a est impair')
 
 
 Si on veut envisager plusieurs tests successifs, on emploie le mot-clé :code:`elif` (conctraction de :code:`else if`).
@@ -30,26 +27,22 @@ Si on veut envisager plusieurs tests successifs, on emploie le mot-clé :code:`e
 .. ipython:: python
 
     a = 5
-    x = 0
-    if a < 1:
-        x = 1\
+    if a % 2 == 0:
+        print('a est pair')\
     elif a > 3:
-        x = 2
-    x
+        print('a est impair et strictement supérieur à 3')
 
 On peut évidemment combiner :code:`if`, :code:`elif` et :code:`else`.
 
 .. ipython:: python
 
-    a = 5
-    x = 0
-    if a < 1:
-        x = 1\
-    elif a < 2:
-        x = 2 \
+    a = 1
+    if a % 2 == 0:
+        print('a est pair')\
+    elif a > 3:
+        print('a est impair et strictement supérieur à 3')
     else:
-        x = 3
-    x
+        print('a est impair et inférieur ou égal à 3')
 
 .. note::
 
