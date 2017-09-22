@@ -44,10 +44,30 @@ On peut évidemment combiner :code:`if`, :code:`elif` et :code:`else`.
     else:
         print('a est impair et inférieur ou égal à 3')
 
-.. note::
+Opérateur ternaire :code:`... if ... else ...`
+==============================================
 
-    Python dispose
+Python dispose
 
-    .. ipython:: python
+::
 
-        2 if 3 < 4 else 3
+    <expression1> if <condition> else <expression2>
+
+Cette expression est évaluée comme :code:`<expression1>` si :code:`<condition>` est vraie et comme :code:`<expression2>` sinon.
+
+.. ipython:: python
+
+    a = 0
+    'papa' if a == 0 else 'maman'
+    'papa' if a == 1 else 'maman'
+
+Ce type d'expression peut également accomplir une action plutôt que de renvoyer un objet.
+
+.. ipython:: python
+
+    li = [1, 2, 3]
+    a = 0
+    li.append('toto') if a == 0 else li.append('titi')
+    li
+    print(li.append('toto') if a == 1 else li.append('titi'))   # En fait, l'expression est évaluée à None
+    li

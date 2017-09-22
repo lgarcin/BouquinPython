@@ -7,7 +7,7 @@ Python pour les CPGE scientifiques
 ==================================
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :numbered:
     :caption: Contenu:
     :titlesonly:
@@ -15,6 +15,7 @@ Python pour les CPGE scientifiques
     types_operateurs_variables
     types_composes
     algorithmique
+    algoclassiques
 
 Index et tables
 ===============
@@ -24,5 +25,9 @@ Index et tables
 * :ref:`search`
 
 .. todo:: Installation Python + comment taper les exemples du bouquin
-.. todo:: un truc sur print
+.. todo:: un truc sur print et input
 .. todo:: tirer au hasard suivant une distribution finie
+.. todo:: directive exercice https://stackoverflow.com/questions/2454577/sphinx-restructuredtext-show-hide-code-snippets
+.. todo:: invariant de boucle, condition d'arrêt
+.. todo:: blabla sur l'interpréteur qui affiche et pas l'éditeur
+.. todo:: problème retour ligne dans tests

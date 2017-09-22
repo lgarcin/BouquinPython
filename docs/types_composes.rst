@@ -3,13 +3,12 @@ Types composés : listes, tuples et chaînes de caractères
 ========================================================
 
 .. toctree::
-    :maxdepth: 2
     :caption: Contenu:
 
     listes
     tuples
     chaines
-    muabilite
+    mutabilite
 
 .. todo:: peut-être rajouter dictionnaires
 

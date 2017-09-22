@@ -5,18 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-30206958-4']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>2.1. Listes &mdash; documentation Python pour CPGE scientifiques 1</title>
@@ -105,10 +94,11 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Listes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tuples.html">2.2. Tuples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chaines.html">2.3. Chaînes de caractère</a></li>
-<li class="toctree-l2"><a class="reference internal" href="muabilite.html">2.4. Muabilité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutabilite.html">2.4. Mutabilité</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="algorithmique.html">3. Rudiments d’algorithmique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algoclassiques.html">4. Algorithmes classiques</a></li>
 </ul>
 
             
@@ -176,7 +166,8 @@
             
   <div class="section" id="listes">
 <h1>2.1. Listes<a class="headerlink" href="#listes" title="Lien permanent vers ce titre">¶</a></h1>
-<p class="rubric">Création de listes et opérations de base</p>
+<div class="section" id="creation-de-listes-et-operations-de-base">
+<h2>2.1.1. Création de listes et opérations de base<a class="headerlink" href="#creation-de-listes-et-operations-de-base" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une <strong>liste</strong> est tout simplement une collection d’objets. On la déclare en séparant ses éléments par des virgules <code class="code docutils literal"><span class="pre">,</span></code> et en les encadrant par des crochets <code class="code docutils literal"><span class="pre">[...]</span></code>.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="nb">type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="gh">Out[1]: </span><span class="go">list</span>
@@ -197,7 +188,7 @@
 <span class="gh">Out[4]: </span><span class="go">[1.23, &#39;abc&#39;, 45, 6, &#39;def&#39;, &#39;ghi&#39;, 7.89]</span>
 </pre></div>
 </div>
-<p>On devine alors l’action de l “opérateur <code class="code docutils literal"><span class="pre">*</span></code> <a class="footnote-reference" href="#monoide" id="id1">[1]</a>.</p>
+<p>On devine alors l’action de l’opérateur <code class="code docutils literal"><span class="pre">*</span></code> <a class="footnote-reference" href="#monoide" id="id1">[1]</a>.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="p">[</span><span class="mf">1.23</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">45</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="gh">Out[5]: </span><span class="go">[1.23, &#39;abc&#39;, 45, 1.23, &#39;abc&#39;, 45, 1.23, &#39;abc&#39;, 45]</span>
 </pre></div>
@@ -211,7 +202,9 @@
 <span class="gh">Out[6]: </span><span class="go">3</span>
 </pre></div>
 </div>
-<p class="rubric">Accès aux éléments</p>
+</div>
+<div class="section" id="acces-aux-elements">
+<h2>2.1.2. Accès aux éléments<a class="headerlink" href="#acces-aux-elements" title="Lien permanent vers ce titre">¶</a></h2>
 <p>On peut accéder aux éléments d’une liste via leurs indices et l’opérateur <code class="code docutils literal"><span class="pre">[</span> <span class="pre">]</span></code>.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">67</span><span class="p">]</span>
 
@@ -240,7 +233,9 @@
 <span class="go">             Out[13]: &#39;c&#39;</span>
 </pre></div>
 </div>
-<p class="rubric">Modification des éléments</p>
+</div>
+<div class="section" id="modification-des-elements">
+<h2>2.1.3. Modification des éléments<a class="headerlink" href="#modification-des-elements" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L’opérateur <code class="code docutils literal"><span class="pre">[</span> <span class="pre">]</span></code> permet également de modifier les éléments d’une liste.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">67</span><span class="p">]</span>
 
@@ -259,7 +254,9 @@
 <span class="gh">Out[19]: </span><span class="go">[1.23, [&#39;abc&#39;, &#39;def&#39;, &#39;toto&#39;], [45, 67]]</span>
 </pre></div>
 </div>
-<p class="rubric">Insertion et suppression d’éléments</p>
+</div>
+<div class="section" id="insertion-et-suppression-d-elements">
+<h2>2.1.4. Insertion et suppression d’éléments<a class="headerlink" href="#insertion-et-suppression-d-elements" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Il existe plusieurs moyens d’ajouter des éléments à une liste.</p>
 <p>La première méthode est de les ajouter un par un grâce aux méthodes <code class="code docutils literal"><span class="pre">append</span></code> (insertion en fin de liste) ou <code class="code docutils literal"><span class="pre">insert</span></code> (insertion à un endroit donné).</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
@@ -312,15 +309,15 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">La méthode <code class="code docutils literal"><span class="pre">remove</span></code> ne supprime que la <em>première</em> occurence d’une valeur donnée.</p>
-</div>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<p>La méthode <code class="code docutils literal"><span class="pre">remove</span></code> ne supprime que la <em>première</em> occurence d’une valeur donnée.</p>
+<div class="last highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
 <span class="gp">In [38]: </span><span class="n">ma_liste</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="gp">In [39]: </span><span class="n">ma_liste</span>
 <span class="gh">Out[39]: </span><span class="go">[1, 3, 2, 4, 2]</span>
 </pre></div>
+</div>
 </div>
 <p>La suppression d’éléments peut également se faire au moyen du mot-clé <code class="code docutils literal"><span class="pre">del</span></code> <a class="footnote-reference" href="#del" id="id2">[2]</a>.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [40]: </span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -331,7 +328,9 @@
 <span class="gh">Out[42]: </span><span class="go">[&#39;a&#39;, 1, 2, &#39;c&#39;, 3]</span>
 </pre></div>
 </div>
-<p class="rubric">Sous-listes (slicing)</p>
+</div>
+<div class="section" id="sous-listes-slicing">
+<h2>2.1.5. Sous-listes (slicing)<a class="headerlink" href="#sous-listes-slicing" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Il existe une syntaxe permettant de créer une sous-liste d’une liste.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">]</span>
 
@@ -395,11 +394,6 @@
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><p class="first">De manière générale, le mot-clé <code class="code docutils literal"><span class="pre">del</span></code> «&nbsp;supprime&nbsp;» une variable (sans rentrer dans les détails).</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="k">del</span> <span class="n">a</span>
-<span class="n">a</span>
-</pre></div>
-</div>
 <div class="last highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
 
 <span class="gp">In [60]: </span><span class="k">del</span> <span class="n">a</span>
@@ -416,6 +410,7 @@
 </td></tr>
 </tbody>
 </table>
+</div>
 </div>
 
 

@@ -9,8 +9,8 @@ Comme dans beau de langages de programmation, il existe deux types de boucles en
     * les boucles conditionnelles qui permettent l'exécution d'un code tant qu'une condition est remplie.
 
 
-.. rubric:: Boucles inconditionnelles
-
+Boucles inconditionnelles
+=========================
 
 Les boucles inconditionnelles en Python permettent de parcourir un objet de type **itérable** (comme une liste, un tuple ou une chaîne de caractères) élément par élément.
 
@@ -81,7 +81,8 @@ Les boucles inconditionnelles en Python permettent de parcourir un objet de type
                 print(i)
 
 
-.. rubric:: Listes en compréhension
+Listes en compréhension
+=======================
 
 En mathématiques, il existe plusieurs manières de décrire un même ensemble. L'ensemble :math:`\mathcal{A}` des entiers pairs compris entre 0 et 19 peut être défini en *extension* :
 
@@ -121,13 +122,24 @@ La version correspondante en Python est :
 
     [n for n in range(20) if n%2==0]
 
-Bien entendu, on peut utiliser ce type de liste pour d'autres objets que des entiers.
+Bien entendu, on peut utiliser ce type de liste pour d'autres objets que des entiers [#listcomp]_.
 
 .. ipython:: python
 
     [s.upper() for s in ('toto', 'tata', 'titi', 'zozo', 'zaza', 'zizi') if s[0]=='t']
 
 
+
+.. rubric:: Notes
+
+.. [#listcomp] Les listes en compréhension peuvent être utilisées pour effectuer des actions plutôt que de calculer des valeurs.
+
+    .. ipython:: python
+
+        s = ([], [1, 2], ['titi', 'tata'])
+        [li.append('toto') for li in s]
+        s
+
+
 .. todo:: blabla sur les itérables
-.. todo:: listes par compréhension
 .. todo:: break et continue

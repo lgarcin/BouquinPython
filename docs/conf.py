@@ -44,8 +44,7 @@ extensions = ['sphinx.ext.mathjax',
               'IPython.sphinxext.ipython_directive',
               'matplotlib.sphinxext.only_directives',
               'matplotlib.sphinxext.plot_directive',
-              'sphinxcontrib.tikz',
-              'sphinxcontrib.googleanalytics']
+              'sphinxcontrib.tikz']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -192,11 +191,3 @@ tikz_libraries = 'positioning, arrows'
 latex_elements = {
     'preamble': '\usepackage{tikz}' + '\usetikzlibrary{' + tikz_libraries + '}'
 }
-
-# Autorun config
-autorun_languages = {}
-autorun_languages['pycon_input_encoding'] = 'utf8'
-autorun_languages['pycon_output_encoding'] = 'utf8'
-
-# Google Analytics
-googleanalytics_id = 'UA-30206958-4'

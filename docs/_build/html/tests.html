@@ -5,18 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-30206958-4']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>3.1. Tests &mdash; documentation Python pour CPGE scientifiques 1</title>
@@ -108,6 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="fonctions.html">3.3. Fonctions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="algoclassiques.html">4. Algorithmes classiques</a></li>
 </ul>
 
             
@@ -176,77 +166,86 @@
   <div class="section" id="tests">
 <h1>3.1. Tests<a class="headerlink" href="#tests" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Un test permet d’effectuer un bloc d’instructions lorsqu’une condition est remplie. On emploie pour cela le mot-clé <code class="code docutils literal"><span class="pre">if</span></code> suivie d’une expression à valeur booléenne.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>       <span class="c1"># Changer la valeur de a pour comprendre ce qui se passe</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>       <span class="c1"># Changer la valeur de a pour comprendre ce qui se passe</span>
 
-<span class="gp">In [2]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="gp">In [3]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="gp">   ...: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">In [2]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span><span class="mi">0</span> <span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a est pair&#39;</span><span class="p">)</span>
 <span class="gp">   ...: </span>
-
-<span class="gp">In [4]: </span><span class="n">x</span>
-<span class="gh">Out[4]: </span><span class="go">1</span>
+<span class="go">a est pair</span>
 </pre></div>
 </div>
 <p>Si on veut introduire un bloc d’instructions à exécuter lorsque la condition <strong>n’est pas</strong> remplie, on emploie le mot-clé <code class="code docutils literal"><span class="pre">else</span></code>.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="gp">In [6]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="gp">   ...: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">In [4]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a est pair&#39;</span><span class="p">)</span>\
 <span class="gp">   ...: </span>
 
-<span class="gp">In [7]: </span><span class="k">else</span><span class="p">:</span>
-<span class="gp">   ...: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="gp">   ...: </span><span class="n">x</span>
+<span class="gp">In [4]: </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a est impair&#39;</span><span class="p">)</span>
 <span class="gp">   ...: </span>
-<span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-7-bd4ba538daec&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-       <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<span class="go">a est impair</span>
 </pre></div>
 </div>
 <p>Si on veut envisager plusieurs tests successifs, on emploie le mot-clé <code class="code docutils literal"><span class="pre">elif</span></code> (conctraction de <code class="code docutils literal"><span class="pre">else</span> <span class="pre">if</span></code>).</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="gp">In [9]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">In [6]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a est pair&#39;</span><span class="p">)</span>\
+<span class="gp">   ...: </span>
 
-<span class="gp">In [10]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>\
-<span class="gp">   ....: </span>
-
-<span class="gp">In [10]: </span><span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="gp">   ....: </span><span class="n">x</span>
-<span class="gp">   ....: </span>
-<span class="gh">Out[10]: </span><span class="go">2</span>
+<span class="gp">In [6]: </span><span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a est impair et strictement supérieur à 3&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+<span class="go">a est impair et strictement supérieur à 3</span>
 </pre></div>
 </div>
 <p>On peut évidemment combiner <code class="code docutils literal"><span class="pre">if</span></code>, <code class="code docutils literal"><span class="pre">elif</span></code> et <code class="code docutils literal"><span class="pre">else</span></code>.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="gp">In [12]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">In [8]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a est pair&#39;</span><span class="p">)</span>\
+<span class="gp">   ...: </span>
 
-<span class="gp">In [13]: </span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>\
-<span class="gp">   ....: </span>
-
-<span class="gp">In [13]: </span><span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> \
-<span class="gp">   ....: </span><span class="k">else</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="gp">   ....: </span><span class="n">x</span>
-<span class="gp">   ....: </span>
-<span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-13-3eb5a28ddaaa&gt;&quot;</span><span class="gt">, line </span><span class="mi">4</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">else</span><span class="p">:</span>
-             <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<span class="gp">In [8]: </span><span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a est impair et strictement supérieur à 3&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a est impair et inférieur ou égal à 3&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+<span class="go">a est impair et inférieur ou égal à 3</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
+<div class="section" id="operateur-ternaire-if-else">
+<h2>3.1.1. Opérateur ternaire <code class="code docutils literal"><span class="pre">...</span> <span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code><a class="headerlink" href="#operateur-ternaire-if-else" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Python dispose</p>
-<div class="last highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="mi">2</span> <span class="k">if</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="k">else</span> <span class="mi">3</span>
-<span class="gh">Out[14]: </span><span class="go">2</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">expression1</span><span class="o">&gt;</span> <span class="k">if</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span> <span class="k">else</span> <span class="o">&lt;</span><span class="n">expression2</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Cette expression est évaluée comme <code class="code docutils literal"><span class="pre">&lt;expression1&gt;</span></code> si <code class="code docutils literal"><span class="pre">&lt;condition&gt;</span></code> est vraie et comme <code class="code docutils literal"><span class="pre">&lt;expression2&gt;</span></code> sinon.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="gp">In [10]: </span><span class="s1">&#39;papa&#39;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;maman&#39;</span>
+<span class="gh">Out[10]: </span><span class="go">&#39;papa&#39;</span>
+
+<span class="gp">In [11]: </span><span class="s1">&#39;papa&#39;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;maman&#39;</span>
+<span class="go">                Out[11]: &#39;maman&#39;</span>
+</pre></div>
+</div>
+<p>Ce type d’expression peut également accomplir une action plutôt que de renvoyer un objet.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="gp">In [13]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="gp">In [14]: </span><span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;toto&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;titi&#39;</span><span class="p">)</span>
+
+<span class="gp">In [15]: </span><span class="n">li</span>
+<span class="gh">Out[15]: </span><span class="go">[1, 2, 3, &#39;toto&#39;]</span>
+
+<span class="gp">In [16]: </span><span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;toto&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;titi&#39;</span><span class="p">))</span>   <span class="c1"># En fait, l&#39;expression est évaluée à None</span>
+<span class="go">                           None</span>
+
+<span class="gp">In [17]: </span><span class="n">li</span>
+<span class="go">                                Out[17]: [1, 2, 3, &#39;toto&#39;, &#39;titi&#39;]</span>
 </pre></div>
 </div>
 </div>

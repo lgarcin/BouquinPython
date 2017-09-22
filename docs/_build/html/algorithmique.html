@@ -5,18 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-30206958-4']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>3. Rudiments d’algorithmique &mdash; documentation Python pour CPGE scientifiques 1</title>
@@ -48,7 +37,7 @@
         <link rel="search" title="Recherche" href="search.html"/>
     <link rel="top" title="documentation Python pour CPGE scientifiques 1" href="index.html"/>
         <link rel="next" title="3.1. Tests" href="tests.html"/>
-        <link rel="prev" title="2.4. Muabilité" href="muabilite.html"/> 
+        <link rel="prev" title="2.4. Mutabilité" href="mutabilite.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -107,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="fonctions.html">3.3. Fonctions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="algoclassiques.html">4. Algorithmes classiques</a></li>
 </ul>
 
             
@@ -183,9 +173,24 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contenu:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tests.html">3.1. Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boucles.html">3.2. Boucles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fonctions.html">3.3. Fonctions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">3.1. Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#operateur-ternaire-if-else">3.1.1. Opérateur ternaire <code class="code docutils literal"><span class="pre">...</span> <span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="boucles.html">3.2. Boucles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="boucles.html#boucles-inconditionnelles">3.2.1. Boucles inconditionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boucles.html#listes-en-comprehension">3.2.2. Listes en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonctions.html">3.3. Fonctions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonctions.html#definir-une-fonction">3.3.1. Définir une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctions.html#fonction-vs-procedure">3.3.2. Fonction vs. procédure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctions.html#portee-des-variables">3.3.3. Portée des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctions.html#fonctions-et-mutabilite">3.3.4. Fonctions et mutabilité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctions.html#une-fonction-est-un-objet">3.3.5. Une fonction est un objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctions.html#fonctions-anonymes">3.3.6. Fonctions anonymes</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -203,7 +208,7 @@
         <a href="tests.html" class="btn btn-neutral float-right" title="3.1. Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="muabilite.html" class="btn btn-neutral" title="2.4. Muabilité" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mutabilite.html" class="btn btn-neutral" title="2.4. Mutabilité" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

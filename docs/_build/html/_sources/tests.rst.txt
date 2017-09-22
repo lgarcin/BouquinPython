@@ -6,11 +6,9 @@ Un test permet d'effectuer un bloc d'instructions lorsqu'une condition est rempl
 
 .. ipython:: python
 
-    a = 5       # Changer la valeur de a pour comprendre ce qui se passe
-    x = 0
-    if a > 1:
-        x = 1
-    x
+    a = 4       # Changer la valeur de a pour comprendre ce qui se passe
+    if a % 2 ==0 :
+        print('a est pair')
 
 
 Si on veut introduire un bloc d'instructions à exécuter lorsque la condition **n'est pas** remplie, on emploie le mot-clé :code:`else`.
@@ -18,11 +16,10 @@ Si on veut introduire un bloc d'instructions à exécuter lorsque la condition *
 .. ipython:: python
 
     a = 5
-    if a < 1:
-        x = 1
+    if a % 2 == 0:
+        print('a est pair')\
     else:
-        x = 2
-    x
+        print('a est impair')
 
 
 Si on veut envisager plusieurs tests successifs, on emploie le mot-clé :code:`elif` (conctraction de :code:`else if`).
@@ -30,31 +27,47 @@ Si on veut envisager plusieurs tests successifs, on emploie le mot-clé :code:`e
 .. ipython:: python
 
     a = 5
-    x = 0
-    if a < 1:
-        x = 1\
+    if a % 2 == 0:
+        print('a est pair')\
     elif a > 3:
-        x = 2
-    x
+        print('a est impair et strictement supérieur à 3')
 
 On peut évidemment combiner :code:`if`, :code:`elif` et :code:`else`.
 
 .. ipython:: python
 
-    a = 5
-    x = 0
-    if a < 1:
-        x = 1\
-    elif a < 2:
-        x = 2 \
+    a = 1
+    if a % 2 == 0:
+        print('a est pair')\
+    elif a > 3:
+        print('a est impair et strictement supérieur à 3')
     else:
-        x = 3
-    x
+        print('a est impair et inférieur ou égal à 3')
 
-.. note::
+Opérateur ternaire :code:`... if ... else ...`
+==============================================
 
-    Python dispose
+Python dispose
 
-    .. ipython:: python
+::
 
-        2 if 3 < 4 else 3
+    <expression1> if <condition> else <expression2>
+
+Cette expression est évaluée comme :code:`<expression1>` si :code:`<condition>` est vraie et comme :code:`<expression2>` sinon.
+
+.. ipython:: python
+
+    a = 0
+    'papa' if a == 0 else 'maman'
+    'papa' if a == 1 else 'maman'
+
+Ce type d'expression peut également accomplir une action plutôt que de renvoyer un objet.
+
+.. ipython:: python
+
+    li = [1, 2, 3]
+    a = 0
+    li.append('toto') if a == 0 else li.append('titi')
+    li
+    print(li.append('toto') if a == 1 else li.append('titi'))   # En fait, l'expression est évaluée à None
+    li

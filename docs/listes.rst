@@ -2,8 +2,8 @@
 Listes
 ======
 
-.. rubric:: Création de listes et opérations de base
-
+Création de listes et opérations de base
+========================================
 
 Une **liste** est tout simplement une collection d'objets. On la déclare en séparant ses éléments par des virgules :code:`,` et en les encadrant par des crochets :code:`[...]`.
 
@@ -37,7 +37,7 @@ L'opérateur :code:`+` permet de *concaténer* des listes.
     [1.23, 'abc', 45] + [6, 'def', 'ghi', 7.89]
 
 
-On devine alors l'action de l 'opérateur :code:`*` [#monoide]_.
+On devine alors l'action de l'opérateur :code:`*` [#monoide]_.
 
 
 .. ipython:: python
@@ -58,7 +58,8 @@ La fonction :code:`len` permet de récupérer la longueur d'une liste.
     len([1.23, 'abc', 45])
 
 
-.. rubric:: Accès aux éléments
+Accès aux éléments
+==================
 
 On peut accéder aux éléments d'une liste via leurs indices et l'opérateur :code:`[ ]`.
 
@@ -91,8 +92,8 @@ On peut également accéder à des éléments d'une liste "par la fin".
     ma_liste[-3]
 
 
-.. rubric:: Modification des éléments
-
+Modification des éléments
+=========================
 
 L'opérateur :code:`[ ]` permet également de modifier les éléments d'une liste.
 
@@ -113,8 +114,8 @@ Bien évidemment, cela fonctionne aussi pour les listes imbriquées.
     ma_liste
 
 
-.. rubric:: Insertion et suppression d'éléments
-
+Insertion et suppression d'éléments
+===================================
 
 Il existe plusieurs moyens d'ajouter des éléments à une liste.
 
@@ -165,11 +166,11 @@ Pour supprimer des éléments, on peut utiliser les méthodes :code:`pop` (renvo
     La méthode :code:`remove` ne supprime que la *première* occurence d'une valeur donnée.
 
 
-.. ipython:: python
+    .. ipython:: python
 
-    ma_liste = [1, 2, 3, 2, 4, 2]
-    ma_liste.remove(2)
-    ma_liste
+        ma_liste = [1, 2, 3, 2, 4, 2]
+        ma_liste.remove(2)
+        ma_liste
 
 
 La suppression d'éléments peut également se faire au moyen du mot-clé :code:`del` [#del]_.
@@ -182,8 +183,8 @@ La suppression d'éléments peut également se faire au moyen du mot-clé :code:
     ma_liste
 
 
-.. rubric:: Sous-listes (slicing)
-
+Sous-listes (slicing)
+=====================
 
 Il existe une syntaxe permettant de créer une sous-liste d'une liste.
 
@@ -243,12 +244,6 @@ On peut combiner le slicing et le mot-clé :code:`del` pour supprimer plusieurs 
 .. [#monoide] En termes savants, l'ensemble des listes munis de la loi :code:`+` est un *monoïde*. La loi :code:`+` est en effet une loi interne associative et la liste vide :code:`[]` est neutre pour cette loi. Le "produit" d'une liste par un entier (positif) n'est autre qu'un *multiple* de cette liste.
 
 .. [#del] De manière générale, le mot-clé :code:`del` "supprime" une variable (sans rentrer dans les détails).
-
-    .. sourcecode:: ipython
-
-        a = 42
-        del a
-        a
 
     .. ipython:: python
 

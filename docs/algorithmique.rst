@@ -12,7 +12,6 @@ Jusqu'à maintenant, les exemples donnés dans le langage Python consistaient en
 
 
 .. toctree::
-    :maxdepth: 2
     :caption: Contenu:
 
     tests

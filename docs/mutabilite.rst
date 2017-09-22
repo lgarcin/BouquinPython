@@ -1,6 +1,6 @@
-=========
-Muabilité
-=========
+==========
+Mutabilité
+==========
 
 Il s'agit d'un paragraphe un peu subtil : il s'agit d'expliquer la différence fondamentale qu'il existe en Python entre les objets que l'on peut modifier (listes) ou que l'on ne peut modifier (tuples ou chaînes de caractère).
 
@@ -62,17 +62,17 @@ Ici, l'instruction :code:`a[0] = 'foo'` a modifié l'objet stocké à l'emplacem
     \node[rectangle,draw,pin={[draw,circle]60:b},pin={[draw,circle]-60:a}](after)[right=5cm of before]{['foo', 2, 3]};
     \draw[-fast cap,shorten <=10pt,shorten >=10pt,>=latex, blue!20!white, line width=10pt](before) -- (after);
 
-Mais pourquoi cette différence de comportement ? Il existe en Python deux types d'objets : les objets **muables** et les objets **immuables**. On peut donner la définition suivante.
+Mais pourquoi cette différence de comportement ? Il existe en Python deux types d'objets : les objets **mutables** et les objets **immutables**. On peut donner la définition suivante.
 
-    Un objet est dit **muable** si on peut changer sa valeur après sa création. Il est dit **immuable** dans le cas contraire [#immuable]_.
+    Un objet est dit **mutable** si on peut changer sa valeur après sa création. Il est dit **immutable** dans le cas contraire [#immutable]_.
 
-Objets immuables
+Objets immutables
     Entiers, flottants, complexes, tuples, chaînes de caractères, ...
 
-Objets muables
+Objets mutables
     Listes, dictionnaires, ...
 
-Voilà la solution du mystère : toutes les variables pointant vers un même objet muable sont affectées par la modification de cet objet. Ceci ne peut pas se produire lorsque des variables pointent vers un objet immuable puisque celui-ci ne peut-être modifié.
+Voilà la solution du mystère : toutes les variables pointant vers un même objet mutable sont affectées par la modification de cet objet. Ceci ne peut pas se produire lorsque des variables pointent vers un objet immutable puisque celui-ci ne peut-être modifié.
 
 
 .. note::
@@ -98,9 +98,10 @@ Voilà la solution du mystère : toutes les variables pointant vers un même obj
     .. todo:: constructeur dans glossaire
 
 
-.. rubric:: Les opérateurs :code:`+` et :code:`+=`
+Les opérateurs :code:`+` et :code:`+=`
+======================================
 
-Le lecteur attentif aura remarqué qu'on semblerait pouvoir modifier un objet immuable telle qu'une chaîne de caractères ou une liste à l'aide des opérateurs :code:`+` ou :code:`+=`. Mais ces opérateurs ne modifient pas l'objet en question ; ils créent en fait un **nouvel** objet. On peut s'en convaincre à l'aide de la fonction :code:`id`.
+Le lecteur attentif aura remarqué qu'on semblerait pouvoir modifier un objet immutable telle qu'une chaîne de caractères ou une liste à l'aide des opérateurs :code:`+` ou :code:`+=`. Mais ces opérateurs ne modifient pas l'objet en question ; ils créent en fait un **nouvel** objet. On peut s'en convaincre à l'aide de la fonction :code:`id`.
 
 .. ipython:: python
 
@@ -118,7 +119,7 @@ Le lecteur attentif aura remarqué qu'on semblerait pouvoir modifier un objet im
     t
     id(t)
 
-Pour les objets muables tels que les listes, les opérateurs :code:`+` et :code:`+=` se comportent de manières différentes : l'opérateur :code:`+` crée un nouvel objet tandis que l'opérateur :code:`+=` modifie l'objet initial.
+Pour les objets mutables tels que les listes, les opérateurs :code:`+` et :code:`+=` se comportent de manières différentes : l'opérateur :code:`+` crée un nouvel objet tandis que l'opérateur :code:`+=` modifie l'objet initial.
 
 .. ipython:: python
 
@@ -136,7 +137,8 @@ Pour les objets muables tels que les listes, les opérateurs :code:`+` et :code:
     liste1, liste2          # liste1 et liste2 ont ete modifiées
     id(liste1), id(liste2)  # c'est normal : liste1 et liste2 pointent vers le même objet
 
-.. rubric:: Egalité structurelle ou physique
+Egalité structurelle ou physique
+================================
 
 On a vu que l'opérateur :code:`==` permettait de tester si deux objets étaient égaux. Mais de quel type d'égalité parle-t-on alors ? L'opérateur :code:`==` teste si deux objets ont la même **valeur** sans pour autant qu'il partage le même emplacement en mémoire. On parle alors d\\'**égalité structurelle**.
 
@@ -175,16 +177,13 @@ On termine par un cas plus vicieux que les deux exemples initiaux et qui peut fa
 
 .. rubric:: Notes
 
-.. [#immuable] Ce n'est pas rigoureusement exact. Un objet immuable tel qu'un tuple peut contenir des objets muables comme des listes. Néanmoins, chaque objet du tuple conserve le même emplacement en mémoire même s'il a été modifié.
+.. [#immutable] Ce n'est pas rigoureusement exact. Un objet immutable tel qu'un tuple peut contenir des objets mutables comme des listes. Néanmoins, chaque objet du tuple conserve le même emplacement en mémoire même s'il a été modifié.
 
-.. ipython:: python
+    .. ipython:: python
 
-    a = ([1, 2, 3], 'toto', 'tata')
-    b = a
-    a[0][1] = 1000
-    a
-    b                   # b a egalement ete modifié
-    id(a[0]), id(b[0])  # le premier élément du tuple est toujours le même
-
-
-.. todo:: immutabilité pour les fonctions
+        a = ([1, 2, 3], 'toto', 'tata')
+        b = a
+        a[0][1] = 1000
+        a
+        b                   # b a egalement ete modifié
+        id(a[0]), id(b[0])  # le premier élément du tuple est toujours le même
