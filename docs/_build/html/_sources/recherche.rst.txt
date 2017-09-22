@@ -63,6 +63,11 @@ Recherche d'un élément dans une liste triée
 
 .. ipython:: python
 
-    @savefig recherche.png width=4in
     from matplotlib.pyplot import plot
-    plot([1, 2, 3])
+    @savefig recherche.png width=4in
+    plot([1, 2, 3, 4], [4, 5, 6, 7])
+
+.. plot::
+
+    from matplotlib.pyplot import plot
+    plot([4, 3, 2])
