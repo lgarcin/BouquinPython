@@ -16,6 +16,7 @@ Python pour les CPGE scientifiques
     types_composes
     algorithmique
     algoclassiques
+    theorie
 
 Index et tables
 ===============
@@ -31,3 +32,4 @@ Index et tables
 .. todo:: invariant de boucle, condition d'arrêt
 .. todo:: blabla sur l'interpréteur qui affiche et pas l'éditeur
 .. todo:: problème retour ligne dans tests
+.. todo:: mettre factorielle quelque part (comme mauvais exemple de récursivité)

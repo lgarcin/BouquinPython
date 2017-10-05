@@ -187,10 +187,11 @@ texinfo_documents = [
 
 # TikZ config
 tikz_proc_suite = 'GhostScript'
-tikz_libraries = 'positioning, arrows'
+tikz_libraries = 'positioning, arrows, matrix'
 latex_elements = {
     'preamble': '\usepackage{tikz}' + '\usetikzlibrary{' + tikz_libraries + '}'
 }
 
 
 plot_include_source = True
+ipython_savefig_dir = './_images'
