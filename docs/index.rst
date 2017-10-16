@@ -12,6 +12,7 @@ Python pour les CPGE scientifiques
     :caption: Contenu:
     :titlesonly:
 
+    io
     types_operateurs_variables
     types_composes
     algorithmique

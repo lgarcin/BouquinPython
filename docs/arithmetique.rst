@@ -32,7 +32,7 @@ donc
 
 .. math::
 
-    4621 = 7 + 8 \times (5 + 8 \times (6 + 8 \times 2)) = 7 + 5 \times 8 + 6 \times 8^2 + 2 \times 8^4
+    1455= 7 + 8 \times (5 + 8 \times (6 + 8 \times 2)) = 7 + 5 \times 8 + 6 \times 8^2 + 2 \times 8^3
 
 .. ipython:: python
 
@@ -48,7 +48,8 @@ donc
     n, b = 3678, 7
     l = decomp(n, b)
     l
-    sum([a * b ** i for i, a in enumerate(l)])  # On vérifie que la liste convient effectivement
+    # On vérifie que la liste convient effectivement
+    sum([a * b ** i for i, a in enumerate(l)])
 
 
 
@@ -122,13 +123,28 @@ On peut proposer un léger raffinement pour éviter une multiplication.
     exponentiation2(3, 5)
 
 
-Mais on peut être beaucoup plus efficace. On remarque que toute puissance :math:`x^n` peut en fait s'écrire comme un produit de puissances de la forme :math:`x^{2^k}` : en effet, :math:`n` peut s'écrire comme une somme d'entiers de la forme :math:`2^k` en considérant sa décomposition en base :math:`2`.
+Mais on peut être beaucoup plus efficace. On remarque que toute puissance :math:`x^n` peut en fait s'écrire comme un produit de puissances de la forme :math:`x^{2^k}` : en effet, :math:`n` peut s'écrire comme une somme d'entiers de la forme :math:`2^k`.
 
 .. math::
 
     x^{13}=x\times x^{12}=x\times(x^2)^6=x\times(x^4)^3=x\times x^4\times x^8
 
-Il suffit alors de calculer successivement
+Il suffit alors de calculer successivement les :math:`x^{2^k}` par des élevations au carré puis de multiplier ces puissances entre elles. Par exemple, dans l'exemple précédent, on utilise :
+
+* 3 multiplications pour calculer successivement :math:`x^2`, :math:`x^4` et :math:`x^8` ;
+* 2 multiplications pour effectuer le produit de :math:`x`, :math:`x^4` et :math:`x^8`.
+
+On effectue en tout 5 multiplications au lieu de 12.
+
+Pour obtenir la décomposition de :math:`x^n` en produit de facteurs de la forme :math:`x^{2^k}`, il suffit de décomposer :math:`n` en base :math:`2`. On utilise donc un algorithme similaire à l'algorithme de décomposition binaire. En effet, en notant :math:`q` et :math:`r` le quotient et le reste de la division euclidienne de :math:`n` par :math:`2`
+
+.. math::
+
+    x^n=\left\{\begin{aligned}
+        \left(x^2\right)^q&\text{ si } r=0\\
+        x\times\left(x^2\right)^q&\text{ si } r=1
+    \end{aligned}\right.
+
 
 .. ipython:: python
 
@@ -173,9 +189,29 @@ On peut également proposer un raffinement pour gagner une multiplication. En ef
 Evaluation de polynômes
 =======================
 
+La méthode naïve pour évaluer un polynôme :math:`P` en un scalaire :math:`x` consiste à calculer les différentes puissances de :math:`x` puis à les multiplier par les coefficients de :math:`P` correspondant puis à effectuer la somme de ces produits.
+
+Par exemple, pour évaluer :math:`5X^3+4X^2-3X+7` en un scalaire :math:`x`, on calcule succesivement :
+
+* les puissances de :math:`x`, à savoir :math:`x^2` et :math:`x^3` (2 multiplications) ;
+* mes produits :math:`-3x`, :math:`4x^2` et :math:`5x^3` (3 multiplications) ;
+* la somme de :math:`7`, :math:`-3x`, :math:`4x^2` et :math:`5x^3` (3 additions).
+
+Mais les calculs peuvent être menés plus astucieusement en remarquant que :
+
 .. math::
 
     7 - 3X + 4X^2 + 5X^3 = 7 + X \left(-3 + 4X + 5X^2\right) = 7 + X \left(-3 + X \left(4 + 5X\right)\right)
+
+On calcule alors successivement :
+
+* :math:`s_1=4+5x` (1 multiplication et 1 addition) ;
+* :math:`s_2=-3+xs_1` (1 multiplication et 1 addition) ;
+* :math:`s_3=7+xs_2` (1 multiplication et 1 addition).
+
+On a gagné deux multiplications par rapport à la méthode précédente et on comprend bien que le gain sera d'autant plus grand que le polynôme est de degré élevé.
+
+L'algorithme décrit dans l'exemple précédent s'appelle la **méthode de Hörner**. Pour implémenter cet algorithme, on représente un polynôme par la liste de ses coefficients rangés par ordre décroissant de degré. Par exemple, la liste :code:`[1, 2, 3]` représente le polynôme :math:`X^2+2X+3`.
 
 .. ipython:: python
 
@@ -185,4 +221,20 @@ Evaluation de polynômes
             s = s * x + c
         return s
 
+    # On évalue le polynôme X²+2X+3 en 4
     horner([1, 2, 3], 4)
+
+Si l'on préfère représenter un polynôme par la liste de ses coeffeficients par ordre de degré *croissant*, on peut toujours utiliser la fonction :code:`reversed` qui fait ce que son nom indique [#reverse_sclicing]_.
+
+.. ipython:: python
+
+    def horner(poly, x):
+        s = 0
+        for c in reversed(poly):
+            s = s * x + c
+        return s
+
+    # On évalue le polynôme 1+2X+3X² en 4
+    horner([1, 2, 3], 4)
+
+.. [#reverse_sclicing] On peut également utiliser du slicing : :code:`lst[::-1]` est également la liste :code:`lst` "renversée".

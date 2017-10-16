@@ -237,6 +237,33 @@ On remarque en particulier que le temps de calcul avec l'algorithme standard aug
 ..     plot(val)
 
 
+Recherche du maximum ou du minimim d'une liste
+==============================================
+
+On suppose qu'on dispose d'une liste d'éléments que l'on peut comparer les uns aux autres et on cherche à déterminer le plus grand ou le plus petit élément. Python dispose déjà de deux fonctions :code:`min` et :code:`max` pour effectuer cette tâche.
+
+.. ipython:: python
+
+    lst = [5, -7, 4, -3, 2, 10]
+    min(lst), max(lst)
+
+On peut également proposer notre algorithme. Rien de bien difficile, il suffit de parcourir un à un les éléments de la liste et de comparer chaque élément au minimum ou maximum des éléments précédents.
+
+
+.. ipython:: python
+
+    def minmax(lst):
+        m, M = None, None
+        for elt in lst:
+            if m is None or m > elt:
+                m = elt
+            if M is None or M < elt:
+                M = elt
+        return m, M
+
+    minmax([5, -7, 4, -3, 2, 10])
+
+
 Recherche d'une sous-chaîne dans une chaîne de caractères
 =========================================================
 

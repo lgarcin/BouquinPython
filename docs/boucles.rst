@@ -14,15 +14,30 @@ Boucles inconditionnelles
 
 Les boucles inconditionnelles en Python permettent de parcourir un objet de type **itérable** (comme une liste, un tuple ou une chaîne de caractères) élément par élément.
 
+De manière générale, on utilise les mots-clés :code:`for` et :code:`in`.
+
+::
+
+    for <element> in <iterable>:
+        <instruction1>
+        <instruction2>
+        ...
+
+On peut itérer aussi bien sur des listes
+
 .. ipython:: python
 
     for elt in [1, 'toto', 2.34]:
         print(elt)
 
+que sur des tuples
+
 .. ipython:: python
 
     for elt in 5, 6, 'tata':    # pas besoin de parenthèses pour le tuple dans ce cas
         print(elt)
+
+et même sur des chaînes de caractère.
 
 .. ipython:: python
 
@@ -30,55 +45,55 @@ Les boucles inconditionnelles en Python permettent de parcourir un objet de type
         print(elt)
 
 
-.. note::
+.. rubric:: La fonction :code:`range`
 
-    La fonction :code:`range` renvoie un itérable contenant des entiers. Plus précisément, lorsque :code:`a, b, c` sont des entiers (:code:`c!=0`),
+La fonction :code:`range` renvoie un itérable contenant des entiers. Plus précisément, lorsque :code:`a, b, c` sont des entiers (:code:`c!=0`),
 
-        * :code:`range(a)` contient les entiers :code:`0, 1, 2, ..., a-2, a-1` (aucun si :code:`a <= 0`) ;
+    * :code:`range(a)` contient les entiers :code:`0, 1, 2, ..., a-2, a-1` (aucun si :code:`a <= 0`) ;
 
-        .. ipython:: python
+    .. ipython:: python
 
-            for i in range(5):
-                print(i)
+        for i in range(5):
+            print(i)
 
-        .. ipython:: python
+    .. ipython:: python
 
-            for i in range(-5):
-                print(i)
+        for i in range(-5):
+            print(i)
 
-        * :code:`range(a, b)` contient les entiers :code:`a, a+1, a+2, ..., b-2, b-1` (aucun si :code:`b <= a`) ;
+    * :code:`range(a, b)` contient les entiers :code:`a, a+1, a+2, ..., b-2, b-1` (aucun si :code:`b <= a`) ;
 
-        .. ipython:: python
+    .. ipython:: python
 
-            for i in range(3, 8):
-                print(i)
+        for i in range(3, 8):
+            print(i)
 
-        .. ipython:: python
+    .. ipython:: python
 
-            for i in range(8, 3):
-                print(i)
+        for i in range(8, 3):
+            print(i)
 
-        * :code:`range(a, b, c)` contient les entiers :code:`a, a+c, a+2c, ...` jusqu'à atteindre :code:`b` exclu (aucun si :code:`c*(b-a)<=0`).
+    * :code:`range(a, b, c)` contient les entiers :code:`a, a+c, a+2c, ...` jusqu'à atteindre :code:`b` exclu (aucun si :code:`c*(b-a)<=0`).
 
-        .. ipython:: python
+    .. ipython:: python
 
-            for i in range(4, 9, 2):
-                print(i)
+        for i in range(4, 9, 2):
+            print(i)
 
-        .. ipython:: python
+    .. ipython:: python
 
-            for i in range(9, 4, 2):
-                print(i)
+        for i in range(9, 4, 2):
+            print(i)
 
-        .. ipython:: python
+    .. ipython:: python
 
-            for i in range(9, 4, -2):
-                print(i)
+        for i in range(9, 4, -2):
+            print(i)
 
-        .. ipython:: python
+    .. ipython:: python
 
-            for i in range(4, 9, -2):
-                print(i)
+        for i in range(4, 9, -2):
+            print(i)
 
 
 Listes en compréhension
@@ -94,7 +109,7 @@ Il peut également être décrit en *compréhension* :
 
 .. math::
 
-    \mathcal{A}=\{2n,n\in[\![0,9]\!]\}
+    \mathcal{A}=\{2n,\;n\in[\![0,9]\!]\}
 
 De la même manière, la liste de ces entiers peut être défini en Python en extension :
 
@@ -114,7 +129,7 @@ Une autre manière de définir :math:`\mathcal{A}` en compréhension est la suiv
 
 .. math::
 
-    \mathcal{A} = \{x\in[\![0,19]\!],x\equiv0[2]\}
+    \mathcal{A} = \{x\in[\![0,19]\!],\;x\equiv0[2]\}
 
 La version correspondante en Python est :
 
@@ -128,6 +143,12 @@ Bien entendu, on peut utiliser ce type de liste pour d'autres objets que des ent
 
     [s.upper() for s in ('toto', 'tata', 'titi', 'zozo', 'zaza', 'zizi') if s[0]=='t']
 
+
+
+Boucles conditionnelles
+=======================
+
+Une boucle conditionnelle consiste à répéter un bloc d'instructions **tant qu'une condition est vraie**.
 
 
 .. rubric:: Notes

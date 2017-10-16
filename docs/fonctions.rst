@@ -11,7 +11,9 @@ Définir une fonction
 
 Considérons l'exemple simple suivant.
 
+.. todo:: A terminer
 
+Il faut bien faire la différence entre **la déclaration** et **l'appel** de la fonction. Lorsqu'une fonction est **déclarée**, aucun code n'est exécuté. Il faut **appeler** la fonction pour que le code soit exécuté.
 
 Les fonctions en programmation ont essentiellement deux objectifs :
 
@@ -42,7 +44,7 @@ Les fonctions en programmation ont essentiellement deux objectifs :
 
 .. todo:: le nom des arguments n'importe pas comme en maths
 .. todo:: on peut déclarer une fonction dans une autre fonction.
-
+.. todo:: arguments facultatifs et arguments par défaut
 .. todo:: la déclaration d'une fonction ne fait rien
 
 
@@ -98,9 +100,12 @@ La plupart du temps, on préfèrera utiliser utiliser :code:`return` plutôt que
 
 .. ipython:: python
 
-    liste_carres1(10)           # Avec la première version, la liste des carrés est affichée mais on ne peut plus rien en faire
-    print(liste_carres1(10))    # En effet, la fonction renvoie None
-    sum(liste_carres2(10))      # Avec la deuxième version, on peut par exemple calculer la somme des carrés des premiers entiers
+    # Avec la première version, la liste des carrés est affichée mais on ne peut plus rien en faire
+    liste_carres1(10)
+    # En effet, la fonction renvoie None
+    print(liste_carres1(10))
+    # Avec la deuxième version, on peut par exemple calculer la somme des carrés des premiers entiers
+    sum(liste_carres2(10))
 
 Portée des variables
 ====================
@@ -154,6 +159,21 @@ On dit que les variables à l'intérieur d'une fonction sont des variables **loc
 
     On évitera cependant de donner des noms identiques à des variables locales et globales de manière à éviter toute confusion.
 
+Quand il existe des variables locales et globales de même nom, la préférence est donnée aux variables locales à l'intérieur de la fonction.
+
+.. ipython:: python
+
+    a = 1
+    def f(x):
+        a = 3
+        return a + x    # la variable locale a est utilisée et non la variable globale a
+
+.. ipython:: python
+
+    f(5)
+
+
+
 On ne peut pas accéder à des variables locales à l'extérieur de la fonction où elles sont définies.
 
 .. ipython:: python
@@ -167,7 +187,7 @@ On ne peut pas accéder à des variables locales à l'extérieur de la fonction 
 
 On peut donc également voir les variables locales comme des variables *temporaires* dont l'existence n'est assurée qu'à l'intérieur de la fonction où elles interviennent.
 
-On peut néanmoins modifier une variable globale dans une fonction : on utilise alors le mot-clé :code:`global`.
+On peut néanmoins modifier une variable globale à l'intérieur d'une fonction : on utilise alors le mot-clé :code:`global`.
 
 .. ipython:: python
 
