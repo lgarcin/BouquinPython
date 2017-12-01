@@ -6,6 +6,7 @@ Une chaîne de caractères n'est autre qu'une liste de caractères. Les caractè
 
 .. ipython:: python
 
+    type('abcdef')
     "abcdef" == 'abcdef'
 
 .. todo:: Imbriquer guillemets simples et doubles

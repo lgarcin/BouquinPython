@@ -75,23 +75,3 @@ Bien que cela n'ait rien d'obligatoire, il est judicieux que l'identifiant d'une
     * Certains mots du langage Python sont dits "réservés" et ne peuvent servir à désigner une variable (:code:`for`, :code:`while`, :code:`del`, ...).
 
     * Le nommage des identifiants doit obéir à certaines règles : le premier caractère ne peut être un chiffre, certains caractères comme :code:`#` ou :code:`@` sont proscrits, ...
-
-
-Opération/affectation
----------------------
-
-
-Les opérateurs binaires peuvent être suivis du symbole :code:`=` pour effectuer simultanément une opération et une affectation. Ainsi :code:`a += b` équivaut à :code:`a = a + b`
-
-
-.. ipython:: python
-
-    a = 2
-    a += 3
-    a
-    a *= 2
-    a
-    a **= 3
-    a
-    a %= 30
-    a

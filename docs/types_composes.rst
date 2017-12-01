@@ -1,6 +1,6 @@
-========================================================
-Types composés : listes, tuples et chaînes de caractères
-========================================================
+==============
+Types composés
+==============
 
 .. toctree::
     :caption: Contenu:
@@ -9,6 +9,7 @@ Types composés : listes, tuples et chaînes de caractères
     tuples
     chaines
     mutabilite
+    dictionnaires
 
 .. todo:: peut-être rajouter dictionnaires
 

@@ -17,9 +17,9 @@ Si on veut introduire un bloc d'instructions à exécuter lorsque la condition *
 
     a = 5
     if a % 2 == 0:
-        print('a est pair')\
+    ...  print('a est pair')
     else:
-        print('a est impair')
+    ...  print('a est impair')
 
 
 Si on veut envisager plusieurs tests successifs, on emploie le mot-clé :code:`elif` (conctraction de :code:`else if`).
@@ -28,9 +28,9 @@ Si on veut envisager plusieurs tests successifs, on emploie le mot-clé :code:`e
 
     a = 5
     if a % 2 == 0:
-        print('a est pair')\
+    ...  print('a est pair')
     elif a > 3:
-        print('a est impair et strictement supérieur à 3')
+    ...  print('a est impair et strictement supérieur à 3')
 
 On peut évidemment combiner :code:`if`, :code:`elif` et :code:`else`.
 
@@ -38,11 +38,11 @@ On peut évidemment combiner :code:`if`, :code:`elif` et :code:`else`.
 
     a = 1
     if a % 2 == 0:
-        print('a est pair')\
+    ...  print('a est pair')
     elif a > 3:
-        print('a est impair et strictement supérieur à 3')
+    ...  print('a est impair et strictement supérieur à 3')
     else:
-        print('a est impair et inférieur ou égal à 3')
+    ...  print('a est impair et inférieur ou égal à 3')
 
 Opérateur ternaire :code:`... if ... else ...`
 ==============================================
@@ -69,5 +69,6 @@ Ce type d'expression peut également accomplir une action plutôt que de renvoye
     a = 0
     li.append('toto') if a == 0 else li.append('titi')
     li
-    print(li.append('toto') if a == 1 else li.append('titi'))   # En fait, l'expression est évaluée à None
+    # En fait, l'expression est évaluée à None
+    print(li.append('toto') if a == 1 else li.append('titi'))
     li

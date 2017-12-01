@@ -1,3 +1,4 @@
 ipython
 matplotlib
 sphinxcontrib-tikz
+sphinxcontrib-programoutput

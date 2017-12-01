@@ -62,4 +62,21 @@ On dispose des opérateurs logique classiques : :code:`not` (négation), :code:`
     7<=8 or "abc"=="def"
 
 
-.. todo:: Enchaîner les opérateurs de comparaison et d'affectation
+Opération/affectation
+---------------------
+
+
+Les opérateurs binaires peuvent être suivis du symbole :code:`=` pour effectuer simultanément une opération et une affectation. Ainsi :code:`a += b` équivaut à :code:`a = a + b`
+
+
+.. ipython:: python
+
+    a = 2
+    a += 3
+    a
+    a *= 2
+    a
+    a **= 3
+    a
+    a %= 30
+    a

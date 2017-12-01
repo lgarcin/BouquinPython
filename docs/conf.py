@@ -44,7 +44,9 @@ extensions = ['sphinx.ext.mathjax',
               'IPython.sphinxext.ipython_directive',
               'matplotlib.sphinxext.only_directives',
               'matplotlib.sphinxext.plot_directive',
-              'sphinxcontrib.tikz']
+              'bokeh.sphinxext.bokeh_plot',
+              'sphinxcontrib.tikz',
+              'sphinxcontrib.programoutput']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -194,4 +196,6 @@ latex_elements = {
 
 
 plot_include_source = True
-ipython_savefig_dir = './_images'
+#ipython_savefig_dir = '_build\\\\html\\\\_images'
+
+os.environ["GOOGLE_API_KEY"] = "AIzaSyDDqERR0JGYccAP_vlLzaKRPxrngg-xTew"

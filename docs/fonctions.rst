@@ -3,8 +3,7 @@ Fonctions
 =========
 
 
-Au cours des chapitres précédents, on a déjà rencontré de nombreuses fonctions telles que :code:`print` ou :code:`len`. De manière générale, une fonction est une "boîte noire" à laquelle on fournit une ou plusieurs valeurs et qui calcule une nouvelle valeur ou effectue des actions à partir de ces données.
-
+Au cours des chapitres précédents, on a déjà rencontré de nombreuses fonctions telles que :code:`print` ou :code:`len`. De manière générale, une fonction est une "boîte noire" à laquelle on fournit une ou plusieurs valeurs et qui calcule une nouvelle valeur ou effectue des actions à partir de ces données.  
 
 Définir une fonction
 ====================
@@ -13,7 +12,7 @@ Considérons l'exemple simple suivant.
 
 .. todo:: A terminer
 
-Il faut bien faire la différence entre **la déclaration** et **l'appel** de la fonction. Lorsqu'une fonction est **déclarée**, aucun code n'est exécuté. Il faut **appeler** la fonction pour que le code soit exécuté.
+Il faut bien faire la différence entre **la déclaration** et **l'appel** d e la fonction. Lorsqu'une fonction est **déclarée**, aucun code n'est exécuté. Il faut **appeler** la fonction pour que le code soit exécuté.
 
 Les fonctions en programmation ont essentiellement deux objectifs :
 

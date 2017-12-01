@@ -5,6 +5,7 @@ Types, opérateurs et variables
 .. toctree::
    :caption: Contenu:
 
+   variables
    types
    operateurs
-   variables
+   conversions

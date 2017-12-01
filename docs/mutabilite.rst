@@ -98,8 +98,7 @@ Voilà la solution du mystère : toutes les variables pointant vers un même obj
     .. todo:: constructeur dans glossaire
 
 
-Les opérateurs :code:`+` et :code:`+=`
-======================================
+.. rubric:: Les opérateurs :code:`+` et :code:`+=`
 
 Le lecteur attentif aura remarqué qu'on semblerait pouvoir modifier un objet immutable telle qu'une chaîne de caractères ou une liste à l'aide des opérateurs :code:`+` ou :code:`+=`. Mais ces opérateurs ne modifient pas l'objet en question ; ils créent en fait un **nouvel** objet. On peut s'en convaincre à l'aide de la fonction :code:`id`.
 
@@ -137,8 +136,7 @@ Pour les objets mutables tels que les listes, les opérateurs :code:`+` et :code
     liste1, liste2          # liste1 et liste2 ont ete modifiées
     id(liste1), id(liste2)  # c'est normal : liste1 et liste2 pointent vers le même objet
 
-Egalité structurelle ou physique
-================================
+.. rubric:: Egalité structurelle ou physique
 
 On a vu que l'opérateur :code:`==` permettait de tester si deux objets étaient égaux. Mais de quel type d'égalité parle-t-on alors ? L'opérateur :code:`==` teste si deux objets ont la même **valeur** sans pour autant qu'il partage le même emplacement en mémoire. On parle alors d\\'**égalité structurelle**.
 

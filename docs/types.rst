@@ -55,44 +55,24 @@ Il faut bien comprendre que les nombres flottants ne sont en fait que des **appr
 Complexe
 --------
 
-Le nombre complexe :math:`i` se note à l'aide de la lettre :code:`j`. Par exemple, le complexe :math:`1+2i` s'écrit :code:`1+2j`.
+Les nombres complexes se notent à l'aide de la lettre :code:`j` qui indique la partie imaginaire. Par exemple, le complexe :math:`1+2i` s'écrit :code:`1+2j`.
 
 
 .. ipython:: python
 
     type(1.2+3.4j)
 
+.. note::
 
-Liste
------
+    Pour représenter un complexe la lettre :code:`j` doit toujours être précédée d'un caractère numérique. Le complexe :math:`i` sera donc représenté par :code:`1j`.
 
-On peut créer une liste de valeurs (pas nécessairement de même type) en les séparant par des virgules et en les encadrant par des crochets.
-
-
-.. ipython:: python
-
-    type([1.23, "abc", 45])
-
-
-Tuple
------
-
-Un *tuple* est également une liste mais qu'on ne peut plus modifier. La liste de valeurs est encadrée par des parenthèses.
-
+On peut accéder aux parties réelle et imaginaire d'un nombre complexe grâce aux attributs :code:`real` et :code:`imag`.
 
 .. ipython:: python
 
-    type((1.23, "abc", 45))
-
-Chaîne de caractères
---------------------
-
-
-.. ipython:: python
-
-    type("Python")
-    type('Maths')
-
+    z = 3 + 4j
+    z.real
+    z.imag
 
 Dictionnaire (hors programme)
 -----------------------------
@@ -106,3 +86,6 @@ Dictionnaire (hors programme)
 .. rubric:: Notes
 
 .. [#ieee754] Pour plus de précision, on pourra consulter la définition de la norme `IEEE 754 <https://fr.wikipedia.org/wiki/IEEE_754>`_.
+
+
+.. todo:: duck typing
