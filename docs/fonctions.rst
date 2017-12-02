@@ -2,8 +2,10 @@
 Fonctions
 =========
 
+Une fonction est un bloc d'instructions que l'on peut appeler à tout moment d'un programme.
 
-Au cours des chapitres précédents, on a déjà rencontré de nombreuses fonctions telles que :code:`print` ou :code:`len`. De manière générale, une fonction est une "boîte noire" à laquelle on fournit une ou plusieurs valeurs et qui calcule une nouvelle valeur ou effectue des actions à partir de ces données.  
+
+Au cours des chapitres précédents, on a déjà rencontré de nombreuses fonctions telles que :code:`print` ou :code:`len`. De manière générale, une fonction est une "boîte noire" à laquelle on fournit une ou plusieurs valeurs et qui calcule une nouvelle valeur ou effectue des actions à partir de ces données.
 
 Définir une fonction
 ====================
