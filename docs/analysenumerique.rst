@@ -461,12 +461,10 @@ On peut tracer la courbe de la solution apporchée que l'on peut comparer à la 
     plt.legend();
 
     @suppress
-    plt.savefig('_build/html/_images/euler.png', width=10)
+    plt.savefig('_images/euler.png', width=10)
     plt.show()
 
-.. image:: ./_images/euler.png
-
-
+.. image:: _images/euler.png
 
 Bien entendu, l'approximation affine :math:`y'(t+\Delta\!t)\approx f(t)+f'(t)\Delta\!t` est d'autant meilleur que :math:`\Delta\!t` est petit.
 

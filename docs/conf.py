@@ -196,8 +196,12 @@ latex_elements = {
 
 
 plot_include_source = True
-#ipython_savefig_dir = '_build\\\\html\\\\_images'
+ipython_savefig_dir = '_images'
 
 os.environ["GOOGLE_API_KEY"] = "AIzaSyDDqERR0JGYccAP_vlLzaKRPxrngg-xTew"
 
-#os.environ["BOKEH_RESOURCES"] = 'absolute'
+#os.environ["BOKEH_RESOURCES"] = 'server'
+#os.environ["BOKEH_ROOTDIR"] = './_static'
+
+def setup(app):
+    app.add_javascript("js/toto.js")

@@ -14,7 +14,7 @@ Considérons l'exemple simple suivant.
 
 .. todo:: A terminer
 
-Il faut bien faire la différence entre **la déclaration** et **l'appel** d e la fonction. Lorsqu'une fonction est **déclarée**, aucun code n'est exécuté. Il faut **appeler** la fonction pour que le code soit exécuté.
+Il faut bien faire la différence entre **la déclaration** et **l'appel** de la fonction. Lorsqu'une fonction est **déclarée**, aucun code n'est exécuté. Il faut **appeler** la fonction pour que le code soit exécuté.
 
 Les fonctions en programmation ont essentiellement deux objectifs :
 
