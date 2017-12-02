@@ -200,5 +200,4 @@ plot_include_source = True
 
 os.environ["GOOGLE_API_KEY"] = "AIzaSyDDqERR0JGYccAP_vlLzaKRPxrngg-xTew"
 
-os.environ["BOKEH_RESOURCES"] = 'relative'
-#os.environ["BOKEH_ROOTDIR"] = '.'
+#os.environ["BOKEH_RESOURCES"] = 'absolute'

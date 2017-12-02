@@ -464,7 +464,7 @@ On peut tracer la courbe de la solution apporchée que l'on peut comparer à la 
     plt.savefig('_build/html/_images/euler.png', width=10)
     plt.show()
 
-.. image:: _images/euler.png
+.. image:: ./_images/euler.png
 
 
 
