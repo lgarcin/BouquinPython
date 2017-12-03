@@ -204,4 +204,4 @@ os.environ["GOOGLE_API_KEY"] = "AIzaSyDDqERR0JGYccAP_vlLzaKRPxrngg-xTew"
 #os.environ["BOKEH_ROOTDIR"] = './_static'
 
 def setup(app):
-    app.add_javascript("js/toto.js")
+    app.add_javascript("js/bokeh_script_hack.js")
