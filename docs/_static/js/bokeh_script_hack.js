@@ -1,3 +1,5 @@
-$("script[src^='/scripts']").each(function() {
-  $(this).append('<div>toto</div>')
+$(document).ready(function() {
+  $("script[src^='/scripts']").each(function() {
+    $.getScript('.' + this.src);
+  })
 });
