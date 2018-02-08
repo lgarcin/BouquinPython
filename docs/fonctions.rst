@@ -2,58 +2,89 @@
 Fonctions
 =========
 
-Une fonction est un bloc d'instructions que l'on peut appeler à tout moment d'un programme.
+Une fonction est un bloc d'instructions que l'on peut appeler à tout moment d'un programme. Les fonctions ont plusieurs intérêts, notamment :
+
+    * la réutilisation du code : éviter de répéter les mêmes séries d'instructions à plusieurs endroits d'un programme ;
+    * la modularité : découper une tâche complexe en plusieurs sous-tâches plus simples.
 
 
-Au cours des chapitres précédents, on a déjà rencontré de nombreuses fonctions telles que :code:`print` ou :code:`len`. De manière générale, une fonction est une "boîte noire" à laquelle on fournit une ou plusieurs valeurs et qui calcule une nouvelle valeur ou effectue des actions à partir de ces données.
 
 Définir une fonction
 ====================
 
-Considérons l'exemple simple suivant.
+Au cours des chapitres précédents, on a déjà rencontré de nombreuses fonctions telles que :code:`print` ou :code:`len`. Chacune de ces fonctions reçoit un argument et effectue une action (la fonction :code:`print` affiche un objet à l'écran) ou renvoie une valeur (la fonction :code:`len` renvoie la taille d'un itérable).
 
-.. todo:: A terminer
-
-Il faut bien faire la différence entre **la déclaration** et **l'appel** de la fonction. Lorsqu'une fonction est **déclarée**, aucun code n'est exécuté. Il faut **appeler** la fonction pour que le code soit exécuté.
-
-Les fonctions en programmation ont essentiellement deux objectifs :
-
-    * réutilisation du code ;
-    * découpage d'une tâche complexe en tâches simples.
-
-
+Jusqu'à maintenant, on s'est contenté de faire appel à des fonctions prédéfinies. Mais on peut également définir ses propres fonctions : il faut alors **déclarer** ces fonctions avant de les utiliser. De manière générale, la syntaxe d'une déclaration de fonctions est la suivante.
 
 ::
 
-    def <nom_fonction>(<arguments>):    # En-tête de la fonction
+    def <nom_fonction>(<paramètres>):   # En-tête de la fonction
         <instruction1>
         <instruction2>                  # Corps de la fonction
         ...
         return <valeur>
 
-.. todo:: rien ne se passe après avoir atteint un return
+On décrit dans le *corps* de la fonction les traitements à effectuer sur les paramètres et on spécifie la valeur que doit renvoyer la fonction.
 
-.. note:: Une fonction peut n'avoir aucun argument.
+Considérons l'exemple simple suivant.
 
-    .. ipython:: python
+.. ipython:: python
 
-        def f():
-            return 1
+    def factorielle(n):
+        a = 1
+        for k in range(1, n+1):
+            a *= k
+        return a
 
-        f()
+La fonction :code:`factorielle` prend en argument un objet :code:`n` (que l'on supposera être un entier naturel), calcule la factorielle de :code:`n` à l'aide d'une variable :code:`a` et renvoie cette valeur.
 
+On constate que rien ne se passe lorsque la fonction est déclarée. Il faut **appeler** la fonction en fournissant une valeur à l'entier :code:`n` pour que le code soit exécuté.
 
-.. todo:: le nom des arguments n'importe pas comme en maths
-.. todo:: on peut déclarer une fonction dans une autre fonction.
-.. todo:: arguments facultatifs et arguments par défaut
-.. todo:: la déclaration d'une fonction ne fait rien
+.. ipython:: python
 
+    factorielle(5)
+    factorielle(7)
 
+.. note::
 
-Fonction vs. procédure
-======================
+    Il faut bien faire la différence entre **la déclaration** et **l'appel** de la fonction. Lorsqu'une fonction est **déclarée**, aucun code n'est exécuté. Il faut **appeler** la fonction pour que le code soit exécuté.
 
-Une fonction peut ne pas contenir d'instruction :code:`return` ou peut ne renvoyer aucune valeur. Dans ce cas, on parlera de *procédure* plutôt que de fonction. En fait, si on ne renvoie pas explicitement de valeur, Python renverra par défaut la valeur particulière :code:`None`.
+L'instruction :code:`return`
+============================
+
+On "sort" de la fonction dès qu'on recontre une instruction :code:`return` : en particulier, les instructions suivant un :code:`return` ne sont pas exécutées.
+
+.. ipython:: python
+
+    def test(n):
+        if n % 2 == 0:
+            return "n est un multiple de 2"
+        if n % 3 ==0:
+            return "n est un multiple de 3"
+        return "Bidon"
+
+    test(4)
+    test(9)
+    test(6)
+    test(11)
+
+On peut cependant utiliser ceci à notre avantage : par exemple, pour sortir d'une boucle :code:`for` avant d'avoir accompli toutes les itérations.
+
+.. ipython:: python
+
+    from math import sqrt, floor
+
+    def est_premier(n):
+        if n <= 1:
+            return False
+        for d in range(2, floor(sqrt(n)) + 1):
+            if n % d == 0:
+                return False
+        return True
+
+    print([(n, est_premier(n)) for n in range(10)])
+
+Une fonction peut ne pas contenir d'instruction :code:`return` ou peut ne renvoyer aucune valeur. En fait, si on ne renvoie pas explicitement de valeur, Python renverra par défaut la valeur particulière :code:`None`.
 
 .. ipython:: python
 
@@ -108,6 +139,62 @@ La plupart du temps, on préfèrera utiliser utiliser :code:`return` plutôt que
     # Avec la deuxième version, on peut par exemple calculer la somme des carrés des premiers entiers
     sum(liste_carres2(10))
 
+
+.. todo:: on peut déclarer une fonction dans une autre fonction.
+
+
+Paramètres et arguments
+=======================
+
+Une fonction peut avoir zéro, un ou plusieurs paramètres [#zeroargument]_.
+
+.. note:: Bien que les termes *paramètres* et *arguments* soient souvent confondus, il existe une nuance dont nous tiendrons compte dans ce chapitre : les *paramètres* sont les noms intervenant dans l'en-tête de la fonction tandis que les *arguments* sont les valeurs passées à la fonction lors de son appel.
+
+    .. ipython:: python
+
+        def add(a, b):      # Les paramètres sont a et b
+            return a + b
+
+        add(5, 10)          # Les arguments sont 5 et 10
+
+De même que pour les variables, les noms des paramètres doivent refléter leur utilisation pour que le code soit plus lisible. Par ailleurs, on peut passer des arguments à une fonction en utilisant les noms des paramètres, ce qui rend le code encore plus explicite.
+
+.. ipython:: python
+
+    def nom_complet(prenom, nom):
+        return prenom[0].upper() + prenom[1:].lower() + ' ' + nom.upper()
+
+    nom_complet(prenom='james', nom='bond')
+
+L'emploi d\\'*arguments nommés* permet de passer les arguments dans un ordre différent de l'ordre des paramètres dans l'en-tête de la fonction.
+
+.. ipython:: python
+
+    nom_complet(nom='PrOuSt', prenom='MARcel')
+
+Il est possible de donner des valeurs par défaut aux paramètres d'une fonction : les arguments correspondants ne sont plus alors requis lors de l'appel de la fonction.
+
+.. ipython:: python
+
+    def nom_complet(prenom='Joe', nom='Bob'):
+        return prenom[0].upper() + prenom[1:].lower() + ' ' + nom.upper()
+
+    nom_complet()
+    nom_complet('ulysse')
+    nom_complet(nom='capet')
+
+Dans l'en-tête d'une fonction les paramètres avec des valeurs par défaut doivent toujours *suivre* les paramètres sans valeurs par défaut sous peine de déclencher une erreur de syntaxe.
+
+.. ipython:: python
+
+    def toto(a=1, b, c=2):
+        pass
+
+Le but est d'éviter toute ambiguïté. En effet, quels seraient les arguments passés lors de l'appel de fonction :code:`toto(5, 6)` ? :code:`a=1`, :code:`b=5` et :code:`c=6` ou bien :code:`a=5`, :code:`b=6` et :code:`c=2` ?
+
+.. todo:: arguments par défaut mutables
+
+
 Portée des variables
 ====================
 
@@ -125,7 +212,7 @@ On dit que les variables définies à l'extérieur d'une fonction sont des varia
 
 .. note::
 
-    De manière générale, il est plutôt déconseillé d'utiliser des variables globales à l'intérieur d'une fonction. De toute façon, il est toujours possible de passer une variable globale en tant qu'argument d'une fonction.
+    De manière générale, il est plutôt déconseillé d'utiliser des variables globales à l'intérieur d'une fonction. Il est par exemple plus difficile de tester ou débugger une fonction faisant appel à des variables globales : en plus de chercher les bugs à l'intérieur de la fonction, il faudra examiner tous les endroits où ces variables globales sont potentiellement modifiées, ce qui peut devenir un vrai casse-tête dans un programme complexe.
 
 .. warning::
 
@@ -146,8 +233,7 @@ Considérons maintenant l'exemple suivant.
     a = 1
     def f():
         a = 2
-
-.. ipython:: python
+        return None
 
     a
     f()
@@ -169,10 +255,7 @@ Quand il existe des variables locales et globales de même nom, la préférence 
         a = 3
         return a + x    # la variable locale a est utilisée et non la variable globale a
 
-.. ipython:: python
-
     f(5)
-
 
 
 On ne peut pas accéder à des variables locales à l'extérieur de la fonction où elles sont définies.
@@ -181,10 +264,11 @@ On ne peut pas accéder à des variables locales à l'extérieur de la fonction 
 
     def f():
         c = 2
+        return None
 
-.. ipython:: python
-
+    f()
     c   # c est inconnu à l'extérieur de la fonction
+
 
 On peut donc également voir les variables locales comme des variables *temporaires* dont l'existence n'est assurée qu'à l'intérieur de la fonction où elles interviennent.
 
@@ -196,15 +280,14 @@ On peut néanmoins modifier une variable globale à l'intérieur d'une fonction 
     def f():
         global a
         a = 2
-
-.. ipython:: python
+        return None
 
     a
     f()
     a   # a vaut bien 2
 
 
-Les arguments d'une fonction ont également une portée locale.
+Les paramètres d'une fonction ont également une portée locale.
 
 .. ipython:: python
 
@@ -217,7 +300,7 @@ Les arguments d'une fonction ont également une portée locale.
 Fonctions et mutabilité
 =======================
 
-Considérons ce premier exemple où l'argument et un entier.
+Considérons ce premier exemple où l'argument est un entier.
 
 .. ipython:: python
 
@@ -318,6 +401,20 @@ Finalement, on peut résumer les choses de la manière suivante.
 
 .. todo:: Une variable globale ne peut pas être un paramètre si mot-clé global.
 
+
+Effets de bord
+==============
+
+En plus de renvoyer une valeur, une fonction peut entraîner des modifications au-delà de sa portée comme :
+
+* modifier des variables globales ;
+* modifier des arguments mutables ;
+* afficher des informations à l'écran ;
+* enregistrer des données dans un fichier.
+
+On parle alors d\\'**effet de bord**. Les effets de bord sont à utiliser avec parcimonie : en effet,
+
+
 Une fonction est un objet
 =========================
 
@@ -326,7 +423,7 @@ Il est important de noter qu'en Python, les fonctions sont des objets commes les
 .. ipython:: python
 
     def f(x):
-        return 2*x
+        return 2 * x
 
     type(f)
 
@@ -338,7 +435,7 @@ Ceci est important car on peut par exemple utiliser une fonction comme un argume
         return f(x)
 
     def f(x):
-        return 2*x
+        return 2 * x
 
     appliquer(f, 5)
 
@@ -348,7 +445,7 @@ On peut également créer une fonction qui renvoie une autre fonction.
 
     def multiplier_par(a):
         def f(x):
-            return a*x
+            return a * x
         return f
 
     multiplier_par(2)(5)
@@ -378,9 +475,9 @@ On peut également utiliser une *fonction anonyme* (également appelée *fonctio
 .. ipython:: python
 
     (lambda x: x**2)(4)
-    f = lambda x: x**2              # On peut bien sûr donner un nom à une fonction lambda
+    f = lambda x: x**2              # On peut bien sûr donner un nom à une fonction anonyme
     f(4)
-    g = lambda x, y: x**2 + y**2    # Une fonction lambda peut avoir plus d'un argument
+    g = lambda x, y: x**2 + y**2    # Une fonction anonyme peut avoir plus d'un argument
     g(1, 2)
 
 
@@ -388,9 +485,9 @@ De manière générale, la syntaxe d'une fonction anonyme est la suivante.
 
 ::
 
-    lambda <arguments>: <expression>
+    lambda <paramètres>: <expression>
 
-A la différence d'une fonction classique, une fonction anonyme ne nécessite pas de :code:`return` : l'expression suivant :code:`:` est renvoyée [#fctanonyme]_.
+A la différence d'une fonction classique, une fonction anonyme ne nécessite pas d'instruction :code:`return` : l'expression suivant :code:`:` est renvoyée [#fctanonyme]_.
 
 
 Les fonctions anonymes sont limitées par rapport aux fonctions classiques : elles ne peuvent pas exécuter plusieurs instructions puisque seule **une** expression est renvoyée. Quel est alors l'intérêt des fonctions anonymes ? Il s'agit de créer des fonctions à usage unique qui peuvent notamment servir d'arguments dans d'autres fonctions.
@@ -405,9 +502,21 @@ Bien entendu, on arriverait plus aisément au même résultat grâce à une list
 
 .. ipython:: python
 
-    [2*x for x in [1, 2, 3]]
+    [2 * x for x in [1, 2, 3]]
 
-.. [#fctanonyme] Une fonction anonyme peut également être employée pour accomplir une action plutôt que pour renvoyer un objet.
+
+.. rubric:: Notes
+
+.. [#zeroargument] Une fonction sans paramètre nécessite quand même des parenthèses dans son en-tête.
+
+    .. ipython:: python
+
+        def f():
+            return 1
+
+        f()
+
+.. [#fctanonyme] Une fonction anonyme peut également avoir des effets de bord.
 
     .. ipython:: python
 
@@ -419,9 +528,5 @@ Bien entendu, on arriverait plus aisément au même résultat grâce à une list
 
 
 .. todo:: Documentation d'une fonction
-.. todo:: parler des effets de bord ???
 
 .. todo:: définir une fonction à l'intérieur d'une autre fonction
-
-.. todo:: named parameters
-.. todo:: paramètre par défaut (cas d'un paramètre par défaut mutable)

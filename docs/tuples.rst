@@ -66,7 +66,9 @@ A nouveau, la fonction :code:`len` renvoie la longueur d'un tuple.
     len((1.23, 'abc', 45))
 
 
+
 .. topic:: Affectations multiples
+
 
     Les tuples permettent d'affecter des valeurs à plusieurs variables en même temps [#affmul]_.
 
@@ -76,6 +78,8 @@ A nouveau, la fonction :code:`len` renvoie la longueur d'un tuple.
         a
         b
         c
+
+    .. _affectations-multiples:
 
     Cela permet notamment d'échanger élégamment les valeurs de deux variables [#echange]_.
 

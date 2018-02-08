@@ -34,12 +34,12 @@
 import os
 import sys
 sys.path.append(os.path.abspath('extensions'))
+
 extensions = ['sphinx.ext.mathjax',
               'sphinx.ext.viewcode',
               'sphinx.ext.githubpages',
               'sphinx.ext.doctest',
               'sphinx.ext.todo',
-              'sphinx_execute_code',
               'IPython.sphinxext.ipython_console_highlighting',
               'IPython.sphinxext.ipython_directive',
               'matplotlib.sphinxext.only_directives',
@@ -204,5 +204,13 @@ os.environ["GOOGLE_API_KEY"] = "AIzaSyDDqERR0JGYccAP_vlLzaKRPxrngg-xTew"
 #os.environ["BOKEH_ROOTDIR"] = './_static'
 
 
-def setup(app):
-    app.add_javascript('js/bokeh_script_hack.js')
+# def generate_bokeh(app):
+#     sys.path.append(os.path.abspath('bokeh_scripts'))
+#     import dichotomie
+#     import rectangles
+#     import trapezes
+#     import euler
+#
+#
+# def setup(app):
+#     app.connect('builder-inited', generate_bokeh)

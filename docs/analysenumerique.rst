@@ -93,7 +93,9 @@ Bien entendu, le module :code:`numpy` dipose déjà d'une fonction ad hoc : la f
 Résolution d'équations par dichotomie
 =====================================
 
-On suppose qu'on dispose d'une fonction :math:`f` continue et strictement monotone sur un intervale :math:`[a,b]` vérifiant :math:`f(a)f(b)\leq0`. Le théorème des valeurs intermédiaires garantit l'existence d'une unique solution à l'équation :math:`f(x)=0` sur l'intervalle :math:`[a,b]`. Pour obtenir une valeur approchée de cette solution, on procède par **dichotomie** :
+Il s'agit ici de calculer une *valeur approchée* d'une solution d'une équation du type :math:`f(x)=0`. On ne cherche pas à obtenir une expression exacte d'une telle solution, ce qui est de toute façon évidemment impossible de manière générale.
+
+On suppose qu'on dispose d'une fonction :math:`f` continue et strictement monotone sur un intervale :math:`[a,b]` vérifiant :math:`f(a)f(b)\leq0`. Le théorème des valeurs intermédiaires garantit l'existence d'une unique solution à l'équation :math:`f(x)=0` sur l'intervalle :math:`[a,b]`. Pour obtenir une *valeur approchée* de cette solution, on procède par **dichotomie** :
 
     1. On calcule :math:`c=(a+b)/2` et :math:`f(c)`.
     2. Si :math:`f(a)f(c)\leq0`, la solution appartient à l'intervalle :math:`[a,c]`. Sinon, elle appartient à l'intervalle :math:`[c,b]`.
@@ -102,112 +104,9 @@ On suppose qu'on dispose d'une fonction :math:`f` continue et strictement monoto
     5. La valeur de :math:`c` est alors une valeur appochée de la solution de :math:`f(x)=0` à :math:`\epsilon/2` près.
 
 
-.. ipython:: python
+.. .. raw:: html
+..    :file: _static/html/dichotomie.html
 
-    import numpy as np
-
-    from bokeh.plotting import figure, show, ColumnDataSource, output_file
-    from bokeh.models import CustomJS, Slider, Span, Label
-    from bokeh.layouts import column, widgetbox
-
-    output_file('_static/file.html')
-
-    f = np.sin
-
-    a, b, N = 2, 4, 10
-    c = (a+b) / 2
-
-    x = np.linspace(a, b, 500)
-    y = f(x)
-
-    la, lb, lc = [a], [b], [c]
-    for _ in range(N+1):
-        if f(a) * f(c) <= 0:
-            b = c
-        else:
-            a = c
-        c = (a + b) / 2
-        la.append(a)
-        lb.append(b)
-        lc.append(c)
-
-    source = ColumnDataSource(data=dict(la=la, lb=lb, lc=lc))
-
-    p = figure(title="Résolution par dichotomie", plot_width=700, plot_height=500)
-    p.title.align = 'center'
-    p.line(x, y, line_width=2)
-
-    slider = Slider(start=0, end=N, value=0, step=1, title="Itérations")
-    spa = Span(location=la[slider.value], dimension='height', line_color='red', line_dash='dashed', line_width=3)
-    p.add_layout(spa)
-    spb = Span(location=lb[slider.value], dimension='height', line_color='green', line_dash='dashed', line_width=3)
-    p.add_layout(spb)
-    spc = Span(location=lc[slider.value], dimension='height', line_color='orange', line_dash='dashed', line_width=3)
-    p.add_layout(spc)
-
-    slider.callback = CustomJS(args=dict(spa=spa, spb=spb, spc=spc, source=source, slider=slider), code="""
-        var n = slider.value;
-        spa.location = source.data['la'][n];
-        spb.location = source.data['lb'][n];
-        spc.location = source.data['lc'][n];
-    """)
-
-    show(column(p, widgetbox(slider)))
-
-.. raw:: html
-   :file: _static/file.html
-
-
-.. bokeh-plot::
-    :source-position: none
-
-    import numpy as np
-
-    from bokeh.plotting import figure, show, ColumnDataSource
-    from bokeh.models import CustomJS, Slider, Span, Label
-    from bokeh.layouts import column, widgetbox
-
-    f = np.sin
-
-    a, b, N = 2, 4, 10
-    c = (a+b) / 2
-
-    x = np.linspace(a, b, 500)
-    y = f(x)
-
-    la, lb, lc = [a], [b], [c]
-    for _ in range(N+1):
-        if f(a) * f(c) <= 0:
-            b = c
-        else:
-            a = c
-        c = (a + b) / 2
-        la.append(a)
-        lb.append(b)
-        lc.append(c)
-
-    source = ColumnDataSource(data=dict(la=la, lb=lb, lc=lc))
-
-    p = figure(title="Résolution par dichotomie", plot_width=700, plot_height=500)
-    p.title.align = 'center'
-    p.line(x, y, line_width=2)
-
-    slider = Slider(start=0, end=N, value=0, step=1, title="Itérations")
-    spa = Span(location=la[slider.value], dimension='height', line_color='red', line_dash='dashed', line_width=3)
-    p.add_layout(spa)
-    spb = Span(location=lb[slider.value], dimension='height', line_color='green', line_dash='dashed', line_width=3)
-    p.add_layout(spb)
-    spc = Span(location=lc[slider.value], dimension='height', line_color='orange', line_dash='dashed', line_width=3)
-    p.add_layout(spc)
-
-    slider.callback = CustomJS(args=dict(spa=spa, spb=spb, spc=spc, source=source, slider=slider), code="""
-        var n = slider.value;
-        spa.location = source.data['la'][n];
-        spb.location = source.data['lb'][n];
-        spc.location = source.data['lc'][n];
-    """)
-
-    show(column(p, widgetbox(slider)))
 
 .. ipython:: python
 
@@ -224,94 +123,32 @@ On suppose qu'on dispose d'une fonction :math:`f` continue et strictement monoto
     dicho(sin, 2, 4, .0001)
 
 
+Il est à remarquer que le module :code:`scipy` dispose déjà de fonctions pouvant résoudre de manière approchée des équations du type :math:`f(x)=0`.
+
+.. ipython:: python
+
+    from scipy.optimize import fsolve
+    from math import cos
+
+    f = lambda x: cos(x**2)
+    x0 = fsolve(f, 0)
+    x0
+    f(*x0)
+
+
 Calcul d'intégrales
 ===================
+
+On expose ici des algorithmes de calcul *approché* d'intégrales [#quad]_. A nouveau, on ne cherche pas à obtenir des expressions exactes de ces intégrales.
 
 Méthode des rectangles
 ----------------------
 
 On peut approcher une intégrale par une somme d'aire de rectangles comme l'indique la figure suivante.
 
-.. bokeh-plot::
-    :source-position: none
+.. .. raw:: html
+..    :file: _static/html/rectangles.html
 
-    import numpy as np
-    from bokeh.plotting import figure, show
-    from bokeh.models import CustomJS, Slider, RadioButtonGroup, ColumnDataSource
-    from bokeh.layouts import widgetbox, column
-
-    f = np.cos
-    a, b = 0, np.pi
-    x = np.linspace(a, b, 1000)
-    xx = np.linspace(a, b, 10)
-    y = f(x)
-    yy = f(xx)
-
-    source = ColumnDataSource(dict(xleft=xx[:-1], xright=xx[1:], yleft=yy[1:], yright=yy[:-1], bottom=[0]*9))
-
-    p = figure(title='Méthode des rectangles', plot_width=700, plot_height=500)
-    p.title.align = 'center'
-    p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None
-    p.line(x, y, line_width=2, color='blue')
-    left = p.quad(left='xleft', right='xright', top='yleft', bottom='bottom', color='red', alpha=.5, source=source)
-    right = p.quad(left='xleft', right='xright', top='yright', bottom='bottom', color='green', alpha=.5, source=source)
-    right.visible = False
-
-    radio = RadioButtonGroup(labels=['Gauche', 'Droite'], active=0)
-    slider = Slider(start=10, end=100, value=10, step=1, title='Nombre de rectangles')
-
-    radio.callback = CustomJS(args=dict(radio=radio, left=left, right=right), code="""
-        switch(radio.active){
-            case 0:
-                left.visible = true;
-                right.visible = false;
-                break;
-            case 1:
-                left.visible = false;
-                right.visible = true;
-                break;
-            default:
-                left.visible = true;
-                right.visible = true;
-            }
-    """)
-
-    slider.callback = CustomJS(args=dict(source=source, slider=slider), code="""
-        var a = 0;
-        var b = Math.PI;
-        var data = source.data;
-        var f = Math.cos;
-
-        var x = a;
-        var y = f(a);
-        var step = (b-a)/slider.value;
-        data.xleft = new Array();
-        data.xright = new Array();
-        data.yleft = new Array();
-        data.yright = new Array();
-        data.bottom = new Array();
-
-        data.xleft.push(x);
-        data.yright.push(y)
-        data.bottom.push(0);
-        for (var k=0; k<slider.value-1; k++){
-            x += step;
-            y = f(x);
-            data.xleft.push(x);
-            data.xright.push(x)
-            data.yleft.push(y);
-            data.yright.push(y);
-            data.bottom.push(0);
-        }
-        x += step;
-        y = f(x);
-        data.xright.push(x);
-        data.yleft.push(y);
-        source.change.emit();
-    """)
-
-    show(column(p, widgetbox(radio, slider)))
 
 Plus précisément, en posant :math:`x_k=a+k(b-a)/n` où :math:`n` désigne le nombre de rectangles :
 
@@ -341,68 +178,23 @@ On peut alors proposer la fonction suivante pour approcher l'intégrale d'une fo
     rectangles(lambda x: x**2, 0, 1, 100, True)
     rectangles(lambda x: x**2, 0, 1, 100, False)
 
-Les sommes :math:`R_n` et :math:`S_n` sont appelées des *sommes de Riemann* et on peut même prouver que pour des fonctions :math:`f` continues,
+Les sommes :math:`R_n` et :math:`S_n` sont appelées des *sommes de Riemann* et on peut même prouver que pour une fonction :math:`f` continue,
 
 .. math::
     \lim_{n\to+\infty}S_n=\lim_{n\to+\infty}T_n=\int_a^bf(t)\,\mathrm{dt}
 
-En particulier, l'appoximation de l'intégrale :math:`\int_a^bf(t)\,\mathrm{dt}` est d'autant meilleure que le nombre :math:`n` de rectangles est grand, ce qui se conçoit très bien géométriquement.
+En particulier, l'appoximation de l'intégrale :math:`\int_a^bf(t)\,\mathrm{dt}` est d'autant meilleure que le nombre :math:`n` de rectangles est grand, ce qui se conçoit très bien géométriquement.[#erreur_arrondi_integrale]_
 
 
 Méthode des trapèzes
 --------------------
 
-On peut également apporcher une intégrale comme une somme d'aires de trapèzes comme sur la figure suivante. Bien évidemment, l'approximation de l'intégrale est meilleure qu'avec des ractangles.
+On peut également apporcher une intégrale comme une somme d'aires de trapèzes comme sur la figure suivante. Bien évidemment, l'approximation de l'intégrale est meilleure qu'avec des rectangles.
 
-.. bokeh-plot::
-    :source-position: none
 
-    import numpy as np
-    from bokeh.plotting import figure, show
-    from bokeh.models import CustomJS, Slider, RadioButtonGroup, ColumnDataSource
-    from bokeh.layouts import widgetbox, column
+.. .. raw:: html
+..    :file: _static/html/trapezes.html
 
-    f = np.cos
-    a, b = 0, np.pi
-    x = np.linspace(a, b, 1000)
-    xx = np.linspace(a, b, 10)
-    y = f(x)
-    yy = f(xx)
-
-    xpatches = [[xx[i], xx[i+1], xx[i+1], xx[i]] for i in range(len(xx)-1)]
-    ypatches = [[0, 0, yy[i+1], yy[i]] for i in range(len(yy)-1)]
-    source = ColumnDataSource(dict(xpatches=xpatches, ypatches=ypatches))
-
-    p = figure(title="Méthode des trapèzes", plot_width=700, plot_height=500)
-    p.title.align = 'center'
-    p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None
-    p.line(x, y, line_width=2, color='blue')
-    p.patches(xs='xpatches', ys='ypatches', source=source, color='orange', alpha=.5)
-    slider = Slider(start=10, end=100, value=10, step=1, title="Nombre")
-    show(column(p, widgetbox(slider)))
-
-    slider.callback = CustomJS(args=dict(source=source, slider=slider), code="""
-        var a = 0;
-        var b = Math.PI;
-        var data = source.data;
-        var f = Math.cos;
-
-        data.xpatches = new Array();
-        data.ypatches = new Array();
-        var x = a;
-        var y = f(a);
-        var step = (b-a)/slider.value;
-        for (var k=0; k<slider.value; k++){
-            var xx = x+step;
-            var yy = f(xx);
-            data.xpatches.push([x, xx, xx, x]);
-            data.ypatches.push([0, 0, yy, y]);
-            x = xx;
-            y = yy;
-        }
-        source.change.emit();
-    """)
 
 A nouveau, en posant :math:`x_k=a+k(b-a)/n` où :math:`n` désigne le nombre de trapèzes :
 
@@ -433,13 +225,11 @@ Cette nouvelle formule permet de calculer :math:`T_n` en effectuant moins d'opé
 
 
 .. todo:: Méthodes de quadrature
-.. todo:: parler de quad dans scipy
-.. todo:: augmenter n très bien mais pb d'arrondi qaund n grand
 
 Résolution d'équations différentielles
 ======================================
 
-L'objectif est de résoudre numériquement des équations différentielles : c'est-à-dire qu'on ne cherche pas des expressions explicites des solutions mais des valeurs approchées.
+L'objectif est de résoudre numériquement des équations différentielles : c'est-à-dire qu'on ne cherche pas des expressions explicites des solutions mais des valeurs approchées[#odeint]_.
 
 Pour commencer, on traitera le cas de *problème de Cauchy* d'ordre 1.
 
@@ -482,7 +272,7 @@ La méthode que l'on vient de décrire porte le nom de **méthode d'Euler**.
             liste_y.append(y)
         return liste_t, liste_y
 
-Par exemple, on calcule ici une solution approchée au système de Cauchy
+Par exemple, on calcule ici une solution approchée du système de Cauchy
 
 .. math::
 
@@ -506,13 +296,15 @@ On peut tracer la courbe de la solution apporchée que l'on peut comparer à la 
     import matplotlib.pyplot as plt
     from numpy import exp, sin, linspace
 
+    plt.figure();
+
     # Tracé de la solution approchée
     plt.plot(liste_t, liste_y, color='red', label='Solution approchée');
 
     # Tracé de la solution exacte
     x = linspace(0, 10, 1000)
     y = exp(sin(x))
-    plt.plot(x, y, color='blue', label='Solution exacte');
+    plt.plot(x, y, '--', color='blue', label='Solution exacte');
 
     plt.legend();
 
@@ -524,61 +316,131 @@ On peut tracer la courbe de la solution apporchée que l'on peut comparer à la 
 
 Bien entendu, l'approximation affine :math:`y'(t+\Delta\!t)\approx f(t)+f'(t)\Delta\!t` est d'autant meilleur que :math:`\Delta\!t` est petit.
 
-.. bokeh-plot::
-    :source-position: none
+.. .. raw:: html
+..    :file: _static/html/euler.html
 
-    import numpy as np
-    from bokeh.plotting import figure, show
-    from bokeh.models import CustomJS, Slider, ColumnDataSource, Range1d
-    from bokeh.layouts import column
+On peut adapter la méthode au cas d'un système différentiel d'ordre 1. Soit par exemple à résoudre le système différentiel suivant.
 
-    f = lambda x: np.exp(np.sin(x))
-    F = lambda t, y: np.cos(t) * y
-    a, b = 0, 10
-    x = np.linspace(a, b, 1000)
-    y = f(x)
-    xx = [0]
-    yy = [1]
-    nb = 20
-    step = (b - a) / nb
-    for _ in range(nb):
-        yy.append(yy[-1] + F(xx[-1], yy[-1]) * step)
-        xx.append(xx[-1] + step)
+.. math::
 
-    source = ColumnDataSource(dict(x=xx, y=yy))
+    \left\{
+    \begin{aligned}
+    x'&=\cos(t)x+\sin(t)y\\
+    y'&=\sin(t)x+\cos(t)y\\
+    (x(0),y(0))&=(1,0)
+    \end{aligned}
+    \right.
 
-    p = figure(title="Méthode d'Euler", plot_width=700, plot_height=500)
-    p.x_range = Range1d(a, b)
-    p.y_range = Range1d(0, 3)
-    p.title.align = 'center'
-    p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None
-    p.line(x, y, line_width=2, color='blue')
-    p.line(x='x', y='y', source=source, color='orange', alpha=.5)
-    slider = Slider(start=20, end=1000, value=20, step=1, title="Nombre")
-    show(column(p, slider))
+.. ipython:: python
 
-    slider.callback = CustomJS(args=dict(source=source, slider=slider), code="""
-        F = (t, y) => Math.cos(t) * y;
-        var a = 0;
-        var b = 10;
-        var data = source.data;
+    def euler(f, t0, X0, pas, nb):
+        t = t0
+        X = X0
+        liste_t = [t]
+        liste_X = [X]
+        for _ in range(nb):
+            X = [x + u * pas for x, u in zip(X, f(t, X))]
+            t += pas
+            liste_t.append(t)
+            liste_X.append(X)
+        return liste_t, liste_X
 
-        data.x = new Array();
-        data.y = new Array();
-        var x = 0
-        var y = 1;
-        data.x.push(x);
-        data.y.push(y);
-        var step = (b-a)/slider.value;
-        for (var k=0; k<slider.value; k++){
-            y += F(x, y) * step;
-            x += step;
-            data.x.push(x);
-            data.y.push(y);
-        }
-        source.change.emit();
-    """)
+.. ipython:: python
+
+    from math import cos, sin
+    f = lambda t, X: [cos(t) * X[0] + sin(t) * X[1], sin(t) * X[0] + cos(t) * X[1]]
+    liste_t, liste_X = euler(f, 0, [1, 0], .01, 1000)
+
+.. ipython:: python
+
+    import matplotlib.pyplot as plt
+    from numpy import exp, sin, cos, sinh, cosh
+
+    plt.figure();
+
+    # Tracé de la solution approchée
+    plt.plot(*zip(*liste_X), color='red', label='Solution approchée');
+
+    # Tracé de la solution exacte
+    t = linspace(0, 10, 1000)
+    x = exp(sin(t)) * cosh(1 - cos(t))
+    y = exp(sin(t)) * sinh(1 - cos(t))
+    plt.plot(x, y, '--', color='blue', label='Solution exacte');
+
+    plt.legend();
+
+    @suppress
+    plt.savefig('_images/euler_syst.png', width=10)
+    plt.show()
+
+.. image:: _images/euler_syst.png
 
 
-.. todo:: parler de odeint
+On sait qu'il est toujours possible de ramener une équation différentielle scalaire d'ordre strictement supérieur à 1 à un système différentiel d'ordre 1.
+
+Par exemple, si l'on désire résoudre le problème de Cauchy
+
+.. math::
+
+    \left\{\begin{aligned}
+    y''+\frac{2t}{1+t^2}y'+\frac{1}{(1+t^2)^2}y&=0\\
+    (y(0),y'(0))&=(1,0)
+    \end{aligned}\right.
+
+on peut se ramener au système différentiel d'ordre 1 suivant
+
+.. math::
+
+    \left\{\begin{aligned}
+    y'&=z\\
+    z'&=-\frac{2t}{1+t^2}z-\frac{1}{(1+t^2)^2}y\\
+    (y(0),z(0))&=(1,0)
+    \end{aligned}\right.
+
+
+
+.. ipython:: python
+
+    f = lambda t, X: [X[1], -X[0] / (1 + t**2)**2 - 2 * t / (1 + t**2) *X[1]]
+    liste_t, liste_X = euler(f, 0, [1, 0], .01, 1000)
+
+.. ipython:: python
+
+    import matplotlib.pyplot as plt
+    from numpy import sqrt
+
+    plt.figure();
+
+    # Tracé de la solution approchée
+    plt.plot(liste_t, [X[0] for X in liste_X], color='red', label='Solution approchée');
+
+    # Tracé de la solution exacte
+    t = linspace(0, 10, 1000)
+    y = 1/sqrt(1 + t**2)
+    plt.plot(t, y, '--', color='blue', label='Solution exacte');
+
+    plt.legend();
+
+    @suppress
+    plt.savefig('_images/euler_edl2.png', width=10)
+    plt.show()
+
+.. image:: _images/euler_edl2.png
+
+.. [#quad] Le module :code:`scipy.integrate` dispose déjà d'une fonction :code:`quad` à cet effet.
+
+    .. todo:: Renvoyer vers le chapitre scipy/numpy
+
+    .. ipython:: python
+
+        from scipy.integrate import quad
+
+        quad(lambda x:1/x**2, 1, 2)
+
+    La fonction :code:`quad` renvoie un couple formé de l'approximation de l'intégrale et d'une majoration de l'erreur d'approximation.
+
+.. [#erreur_arrondi_integrale] Il ne faut cependant pas crier victoire trop tôt. Tout d'abord, le temps de calcul augmente avec :math:`n`. De plus, chaque opération dans l'algorithme entraîne une erreur d'arrondi minime mais, le nombre d'opérations augmentant avec :math:`n`, le cumul de ces erreurs d'arrondi finit par dépasser le gain en précision lorsque :math:`n` est très grand.
+
+.. [#odeint] Le module :code:`scipy.integrate` dispose déjà d'une fonction :code:`odeint` à cet effet.
+
+    .. todo:: Renvoyer vers le chapitre scipy/numpy

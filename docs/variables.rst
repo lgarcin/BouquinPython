@@ -58,7 +58,7 @@ Bien entendu, on peut changer la valeur d'une variable (d'où le nom) et même l
         a
         b
 
-.. todo:: Mettre une référence vers l'échange avec tuples
+    On peut également utiliser des :ref:`affectations multiples <affectations-multiples>` à l'aide de tuples ou de listes.
 
 
 Identifiant d'une variable

@@ -34,3 +34,6 @@ Index et tables
 .. todo:: blabla sur l'interpréteur qui affiche et pas l'éditeur
 .. todo:: problème retour ligne dans tests
 .. todo:: mettre factorielle quelque part (comme mauvais exemple de récursivité)
+.. todo:: Attendre mise à jour bokeh pour chemin relatifs des scripts -> revenir alors à des directives bokeh-plot
+.. todo:: opérateur * (unpacking)
+.. todo:: Gérer l'intégration des scripts bokeh interactifs
