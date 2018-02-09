@@ -11,3 +11,6 @@ On détaille dans ce chapitre quelques algorithmes classiques dont certains figu
     recherche
     analysenumerique
     arithmetique
+    probabilites
+    matrices
+    tris

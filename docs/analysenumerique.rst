@@ -3,93 +3,6 @@ Analyse numérique
 =================
 
 
-Statistiques
-============
-
-
-Le programme stipule que les étudiants doivent savoir calculer les éléments statistiques simples d'une liste de nombres : **moyenne** et **variance**.
-
-Le calcul de la moyenne est on ne peut plus simple : il s'agit de la somme des éléments de la liste divisée par le nombre d'éléments de cette liste. De manière plus formmelle, la moyenne :math:`m` d'une liste :math:`(x_1,\dots,x_n)` de nombres est
-
-.. math::
-
-    m=\frac{1}{n}\sum_{k=1}^nx_k
-
-.. ipython:: python
-
-    def moyenne(liste):
-        somme = 0
-        for el in liste:
-            somme += el
-        return somme / len(liste)
-
-    moyenne([1, 2, 3])
-
-Evidemment, Python dispose déjà deux fonctions permettant de calculer aisément la moyenne d'une liste de nombres. On peut par exemple utiliser la fonction :code:`sum` qui, comme son nom l'indique, calcule la somme des éléments d'une liste (ou plus généralement d'un objet de type itérable).
-
-.. ipython:: python
-
-    moyenne = lambda liste: sum(liste) / len(liste)
-
-    moyenne([1, 2, 3])
-
-Le module :code:`numpy` dispose même d'une fonction :code:`mean` (*moyenne* en anglais).
-
-.. ipython:: python
-
-    from numpy import mean
-
-    mean([1, 2, 3])
-
-
-On peut donner deux expressions de la variance :math:`v` d'une liste :math:`(x_1,\dots,x_n)` de nombres dont on dispose déjà de la moyenne :math:`m`.
-
-.. math::
-
-    v = \left(\frac{1}{n}\sum_{k=1}^nx_k^2\right)-m^2 = \frac{1}{n}\sum_{k=1}^n(x_k-m)^2
-
-
-En utilisant la première expression, on peut par exemple donner cette fonction de calcul de la variance.
-
-.. ipython:: python
-
-    def variance(liste):
-        s1, s2 = 0, 0
-        n = len(liste)
-        for el in liste:
-            s1 += el
-            s2 += el * el
-        return s2 / n - (s1 / n) ** 2
-
-    variance([1, 2, 3])
-
-On peut également utiliser une des fonctions de calcul de moyenne définies précédemment.
-
-.. ipython:: python
-
-    variance = lambda liste: moyenne([el ** 2 for el in liste]) - moyenne(liste) ** 2
-
-    variance([1, 2, 3])
-
-Si l'on préfère, on peut également utiliser la deuxième expression de la variance.
-
-.. ipython:: python
-
-    def variance(liste):
-        m = moyenne(liste)
-        return moyenne([(el - m) ** 2 for el in liste])
-
-    variance([1, 2, 3])
-
-Bien entendu, le module :code:`numpy` dipose déjà d'une fonction ad hoc : la fonction :code:`var`.
-
-.. ipython:: python
-
-    from numpy import var
-
-    var([1, 2, 3])
-
-
 Résolution d'équations par dichotomie
 =====================================
 
@@ -398,7 +311,6 @@ on peut se ramener au système différentiel d'ordre 1 suivant
     \end{aligned}\right.
 
 
-
 .. ipython:: python
 
     f = lambda t, X: [X[1], -X[0] / (1 + t**2)**2 - 2 * t / (1 + t**2) *X[1]]
@@ -435,7 +347,7 @@ on peut se ramener au système différentiel d'ordre 1 suivant
 
         from scipy.integrate import quad
 
-        quad(lambda x:1/x**2, 1, 2)
+        quad(lambda x: 1 / x**2, 1, 2)
 
     La fonction :code:`quad` renvoie un couple formé de l'approximation de l'intégrale et d'une majoration de l'erreur d'approximation.
 

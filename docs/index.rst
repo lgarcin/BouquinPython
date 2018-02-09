@@ -37,3 +37,4 @@ Index et tables
 .. todo:: Attendre mise à jour bokeh pour chemin relatifs des scripts -> revenir alors à des directives bokeh-plot
 .. todo:: opérateur * (unpacking)
 .. todo:: Gérer l'intégration des scripts bokeh interactifs
+.. todo:: des truc sur assert
