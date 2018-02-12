@@ -3,7 +3,7 @@ from bokeh.plotting import figure, show, output_file
 from bokeh.models import CustomJS, Slider, ColumnDataSource, Range1d
 from bokeh.layouts import column
 
-output_file('_static/html/euler.html')
+#output_file('_static/html/euler.html')
 
 f = lambda x: np.exp(np.sin(x))
 F = lambda t, y: np.cos(t) * y

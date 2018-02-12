@@ -49,7 +49,7 @@ donc
     l = decomp(n, b)
     l
     # On vérifie que la liste convient effectivement
-    sum([a * b ** i for i, a in enumerate(l)])
+    sum(a * b ** i for i, a in enumerate(l))
 
 
 

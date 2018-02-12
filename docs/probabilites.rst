@@ -2,9 +2,6 @@
 Probabilités
 ============
 
-.. todo:: Rappels sur random
-.. todo:: parler de numpy.random
-
 Statistiques
 ============
 
@@ -125,12 +122,14 @@ Pour terminer, on peut facilement simuler une variable suivant une **loi binomia
 .. ipython:: python
 
     def bernoulli(p):
-        return 1 if random() <p else 0
+        return 1 if random() < p else 0
 
-    def binomiale(n,p):
-        return sum([bernoulli(p) for _ in range(n)])
+    def binomiale(n, p):
+        return sum(bernoulli(p) for _ in range(n))
 
-    [binomiale(5, .3) for _ in range(20)]
+    [binomiale(5, .8) for _ in range(20)]
+
+    [binomiale(5, .2) for _ in range(20)]
 
 
 .. [#numpy_moyenne] Evidemment, Python dispose déjà deux fonctions permettant de calculer aisément la moyenne d'une liste de nombres. On peut par exemple utiliser la fonction :code:`sum` qui, comme son nom l'indique, calcule la somme des éléments d'une liste (ou plus généralement d'un objet de type itérable).

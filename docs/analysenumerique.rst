@@ -16,6 +16,8 @@ On suppose qu'on dispose d'une fonction :math:`f` continue et strictement monoto
     4. On répète les étapes 1., 2. et 3. tant que la longeur de l'intervalle :math:`[a,b]` est supérieur à une précision :math:`\epsilon` donnée.
     5. La valeur de :math:`c` est alors une valeur appochée de la solution de :math:`f(x)=0` à :math:`\epsilon/2` près.
 
+.. bokeh-plot:: bokeh_scripts/dichotomie.py
+    :source-position: none
 
 .. .. raw:: html
 ..    :file: _static/html/dichotomie.html
@@ -59,6 +61,9 @@ Méthode des rectangles
 
 On peut approcher une intégrale par une somme d'aire de rectangles comme l'indique la figure suivante.
 
+.. bokeh-plot:: bokeh_scripts/rectangles.py
+    :source-position: none
+
 .. .. raw:: html
 ..    :file: _static/html/rectangles.html
 
@@ -96,7 +101,7 @@ Les sommes :math:`R_n` et :math:`S_n` sont appelées des *sommes de Riemann* et 
 .. math::
     \lim_{n\to+\infty}S_n=\lim_{n\to+\infty}T_n=\int_a^bf(t)\,\mathrm{dt}
 
-En particulier, l'appoximation de l'intégrale :math:`\int_a^bf(t)\,\mathrm{dt}` est d'autant meilleure que le nombre :math:`n` de rectangles est grand, ce qui se conçoit très bien géométriquement.[#erreur_arrondi_integrale]_
+En particulier, l'appoximation de l'intégrale :math:`\int_a^bf(t)\,\mathrm{dt}` est d'autant meilleure que le nombre :math:`n` de rectangles est grand, ce qui se conçoit très bien géométriquement [#erreur_arrondi_integrale]_.
 
 
 Méthode des trapèzes
@@ -104,6 +109,8 @@ Méthode des trapèzes
 
 On peut également apporcher une intégrale comme une somme d'aires de trapèzes comme sur la figure suivante. Bien évidemment, l'approximation de l'intégrale est meilleure qu'avec des rectangles.
 
+.. bokeh-plot:: bokeh_scripts/trapezes.py
+    :source-position: none
 
 .. .. raw:: html
 ..    :file: _static/html/trapezes.html
@@ -228,6 +235,9 @@ On peut tracer la courbe de la solution apporchée que l'on peut comparer à la 
 .. image:: _images/euler.png
 
 Bien entendu, l'approximation affine :math:`y'(t+\Delta\!t)\approx f(t)+f'(t)\Delta\!t` est d'autant meilleur que :math:`\Delta\!t` est petit.
+
+.. bokeh-plot:: bokeh_scripts/euler.py
+    :source-position: none
 
 .. .. raw:: html
 ..    :file: _static/html/euler.html
