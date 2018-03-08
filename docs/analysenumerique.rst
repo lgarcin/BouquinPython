@@ -149,7 +149,7 @@ Cette nouvelle formule permet de calculer :math:`T_n` en effectuant moins d'opé
 Résolution d'équations différentielles
 ======================================
 
-L'objectif est de résoudre numériquement des équations différentielles : c'est-à-dire qu'on ne cherche pas des expressions explicites des solutions mais des valeurs approchées[#odeint]_.
+L'objectif est de résoudre numériquement des équations différentielles : c'est-à-dire qu'on ne cherche pas des expressions explicites des solutions mais des valeurs approchées [#odeint]_.
 
 Pour commencer, on traitera le cas de *problème de Cauchy* d'ordre 1.
 

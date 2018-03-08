@@ -291,10 +291,10 @@ Les paramètres d'une fonction ont également une portée locale.
 
 .. ipython:: python
 
-    def f(x):
-        return 2 * x
+    def f(c):
+        return 2 * c
 
-    x   # x est inconnu à l'extérieur de la fonction
+    c   # c est inconnu à l'extérieur de la fonction
 
 
 Fonctions et mutabilité
