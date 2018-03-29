@@ -3,8 +3,6 @@ from bokeh.plotting import figure, show, ColumnDataSource, output_file
 from bokeh.models import CustomJS, Slider, Span, Label
 from bokeh.layouts import column, widgetbox
 
-#output_file('_static/html/dichotomie.html')
-
 f = np.sin
 
 a, b, N = 2, 4, 10

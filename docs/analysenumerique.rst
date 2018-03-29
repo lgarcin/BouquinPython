@@ -19,9 +19,6 @@ On suppose qu'on dispose d'une fonction :math:`f` continue et strictement monoto
 .. bokeh-plot:: bokeh_scripts/dichotomie.py
     :source-position: none
 
-.. .. raw:: html
-..    :file: _static/html/dichotomie.html
-
 
 .. ipython:: python
 
@@ -63,9 +60,6 @@ On peut approcher une intégrale par une somme d'aire de rectangles comme l'indi
 
 .. bokeh-plot:: bokeh_scripts/rectangles.py
     :source-position: none
-
-.. .. raw:: html
-..    :file: _static/html/rectangles.html
 
 
 Plus précisément, en posant :math:`x_k=a+k(b-a)/n` où :math:`n` désigne le nombre de rectangles :
@@ -111,9 +105,6 @@ On peut également apporcher une intégrale comme une somme d'aires de trapèzes
 
 .. bokeh-plot:: bokeh_scripts/trapezes.py
     :source-position: none
-
-.. .. raw:: html
-..    :file: _static/html/trapezes.html
 
 
 A nouveau, en posant :math:`x_k=a+k(b-a)/n` où :math:`n` désigne le nombre de trapèzes :
@@ -209,7 +200,7 @@ Par exemple, on calcule ici une solution approchée du système de Cauchy
     f = lambda t, y: cos(t) * y
     liste_t, liste_y = euler(f, 0, 1, .01, 1000)
 
-On peut tracer la courbe de la solution apporchée que l'on peut comparer à la courbe de la solution exacte. En effet, on montre sans peine que l'unique solution de cd problème de Cauchy est la fonction :math:`x\mapsto e^{\sin(x)}`.
+On peut tracer la courbe de la solution apporchée que l'on peut comparer à la courbe de la solution exacte. En effet, on montre sans peine que l'unique solution de ce problème de Cauchy est la fonction :math:`x\mapsto e^{\sin(x)}`.
 
 .. ipython:: python
 
@@ -239,8 +230,6 @@ Bien entendu, l'approximation affine :math:`y'(t+\Delta\!t)\approx f(t)+f'(t)\De
 .. bokeh-plot:: bokeh_scripts/euler.py
     :source-position: none
 
-.. .. raw:: html
-..    :file: _static/html/euler.html
 
 On peut adapter la méthode au cas d'un système différentiel d'ordre 1. Soit par exemple à résoudre le système différentiel suivant.
 

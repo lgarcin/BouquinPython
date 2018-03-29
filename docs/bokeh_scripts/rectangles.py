@@ -3,8 +3,6 @@ from bokeh.plotting import figure, show, output_file
 from bokeh.models import CustomJS, Slider, RadioButtonGroup, ColumnDataSource
 from bokeh.layouts import widgetbox, column
 
-#output_file('_static/html/rectangles.html')
-
 f = np.cos
 a, b = 0, np.pi
 x = np.linspace(a, b, 1000)
