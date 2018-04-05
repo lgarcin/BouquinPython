@@ -191,7 +191,7 @@ Evaluation de polynômes
 
 La méthode naïve pour évaluer un polynôme :math:`P` en un scalaire :math:`x` consiste à calculer les différentes puissances de :math:`x` puis à les multiplier par les coefficients de :math:`P` correspondant puis à effectuer la somme de ces produits.
 
-Par exemple, pour évaluer :math:`5X^3+4X^2-3X+7` en un scalaire :math:`x`, on calcule succesivement :
+Par exemple, pour évaluer :math:`5X^3+4X^2-3X+7` en un scalaire :math:`x`, on calcule successivement :
 
 * les puissances de :math:`x`, à savoir :math:`x^2` et :math:`x^3` (2 multiplications) ;
 * mes produits :math:`-3x`, :math:`4x^2` et :math:`5x^3` (3 multiplications) ;
@@ -224,7 +224,7 @@ L'algorithme décrit dans l'exemple précédent s'appelle la **méthode de Hörn
     # On évalue le polynôme X²+2X+3 en 4
     horner([1, 2, 3], 4)
 
-Si l'on préfère représenter un polynôme par la liste de ses coeffeficients par ordre de degré *croissant*, on peut toujours utiliser la fonction :code:`reversed` qui fait ce que son nom indique [#reverse_sclicing]_.
+Si l'on préfère représenter un polynôme par la liste de ses coefficients par ordre de degré *croissant*, on peut toujours utiliser la fonction :code:`reversed` qui fait ce que son nom indique [#reverse_sclicing]_.
 
 .. ipython:: python
 

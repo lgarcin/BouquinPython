@@ -2,8 +2,25 @@
 Tris
 ====
 
+On décrit les algorithmes au programmme permettant de trier un tableau de valeurs numériques.
+
 Tri par insertion
 =================
+
+Le principe est très simple : c'est l'algorithme qu'utilise naturellement l'être humain pour trier des objets coomme par exemple des cartes à jouer.
+
+On procède en plusieurs étapes. On suppose qu'à l'étape :math:`i`, les éléments d'indice :math:`0` à :math:`i-1` du tableau sont déjà triés et on insère alors l'élément d'indice :math:`i` à sa place parmi les éléments précédents.
+
+Un dessin vaut probablement mieux qu'un long discours.
+
+.. ipython:: python
+
+    @suppress
+    %run ./scripts/tri_insertion.py
+
+.. image:: _images/tri_insertion.gif
+
+On peut alors proposer la fonction Python suivante.
 
 .. ipython:: python
 
@@ -16,6 +33,8 @@ Tri par insertion
                 pos -= 1
             tab[pos] = val
 
+On vérifie qu'elle fonctionne bien sur quelques tableaux choisis aléatoirement.
+
 .. ipython:: python
 
     from numpy.random import randint
@@ -23,6 +42,8 @@ Tri par insertion
     tab
     tri_insertion(tab)
     tab
+
+.. todo :: preuve de l'algorithme + complexité
 
 Tri rapide
 ==========
